@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
+}
+.logo {
+    height: 100px;
+    position: fixed;
+    left: 10px;
+}
+.header-button-container {
+    display: flex;
+    position: fixed;
+    right: 70px;
+    margin-top: 30px;
+}
+.header-button, .login-button {
+    background-color: #D6DBB6;
+    color: #463F3A;
+}
+.cart-button {
+    background-color: #D6DBB6;
+}
+.cart-img {
+    height: 40px;
+}
+.login-button {
+    border-color: #463F3A;
+    border-width: 2px;
+    border-radius: 0px;
+    height: 35px;
+    padding-top: 4px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.home-heading {
+    display: flex;
+    background-color: #A4BE8B;
+    width: 1200px;
+    height: 200px;
+    border-radius: 20px;
+    margin-bottom: 300px;
+}
+.home-heading-img {
+    height: 150px;
+    margin-top: 35px;
+    margin-left: 30px;
+}
