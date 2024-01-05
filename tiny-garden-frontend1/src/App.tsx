@@ -7,6 +7,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import AdminCustomer from "./pages/AdminCustomer.tsx";
 import DemoAdminCustomer from "./pages/DemoAdminCustomer.tsx";
 import HeaderUser from "./pages/HeaderUser.tsx";
+import Login from "./pages/Login.tsx";
 
 const router = createBrowserRouter(
     [
@@ -21,6 +22,10 @@ const router = createBrowserRouter(
         {
             path: "/registration",
             element: <Register/>
+        },
+        {
+            path: "/login",
+            element: <Login/>
         },
         {
             path:"/adminCustomer",
