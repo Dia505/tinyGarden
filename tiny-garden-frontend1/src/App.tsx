@@ -4,6 +4,9 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import Register from "./pages/Register.tsx";
 import {QueryClient, QueryClientProvider} from "react-query";
+import AdminCustomer from "./pages/AdminCustomer.tsx";
+import DemoAdminCustomer from "./pages/DemoAdminCustomer.tsx";
+import HeaderUser from "./pages/HeaderUser.tsx";
 
 const router = createBrowserRouter(
     [
@@ -12,8 +15,20 @@ const router = createBrowserRouter(
             element: <Home/>
         },
         {
+            path: "/headerUser",
+            element: <HeaderUser/>
+        },
+        {
             path: "/registration",
             element: <Register/>
+        },
+        {
+            path:"/adminCustomer",
+            element: <AdminCustomer/>
+        },
+        {
+            path:"/demoAdCustomer",
+            element: <DemoAdminCustomer/>
         }
     ]
 )

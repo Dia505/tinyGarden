@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: #D6DBB6;
+    height: 100px;
+}
+.logo-container {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.logo {
+    height: 100px;
+    margin-top: -15px;
+    outline: none;
+}
+.header-button-container {
+    display: flex;
+    margin-right: 40px;
+    gap: 50px;
+    align-items: center;
+}
+.header-button {
+    color: #463F3A;
+}
+.header-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.cart-btn {
+    height: 40px;
+}
+.cart-btn:hover {
+    cursor: pointer;
+}
+.login-button {
+    background-color: #D6DBB6;
+    color: #463F3A;
+    border-color: #463F3A;
+    border-width: 2px;
+    border-radius: 0px;
+    height: 35px;
+    padding-top: 4px;
+}
