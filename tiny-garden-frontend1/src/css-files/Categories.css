@@ -1,0 +1,98 @@
+.centre-category {
+    margin-top: 70px;
+}
+.category-title-text {
+    color: #463F3A;
+    font-family: "Henny Penny";
+    font-size: 32px;
+}
+
+.category-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.category-grid-row1 {
+    display: flex;
+    gap: 200px;
+}
+.foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category, .herb-div-category{
+    background-color: #E6B4C1;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category {
+    align-items: center;
+}
+.foliage-div-category:hover, .succulent-div-category:hover, .cactus-div-category:hover, .flower-div-category:hover, .herb-div-category:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+}
+.category-grid-row2 {
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+}
+.foliage-text-category, .succulent-text-category, .cactus-text-category, .flowering-text-category, .herb-text-category{
+    font-family: "Henny Penny";
+    font-size: 28px;
+}
+.foliage-img-category {
+    height: 200px;
+    width: 200px;
+}
+.succulent-img-category {
+    height: 180px;
+    width: 150px;
+}
+.cactus-img-category {
+    height: 200px;
+    width: 200px;
+}
+.flowering-img-category {
+    height: 200px;
+    width: 150px;
+}
+.cactus-img-category, .flowering-img-category {
+    margin-top: 30px;
+}
+.herb-img-category {
+    margin-top: 10px;
+    width: 250px;
+    /*margin-left: 100px;*/
+}
+.herb-div-category {
+    align-items: center;
+}
+.foliage-div-category, .cactus-div-category {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.succulent-div-category {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+    .category-grid-row1 {
+        gap: 50px;
+        transition: gap 0.5s;
+    }
+    .category-grid-row2 {
+        gap: 100px;
+        transition: gap 0.5s;
+    }
+}
+@media screen and (max-width: 900px) {
+    .category-grid-row1 {
+        flex-wrap: wrap;
+    }
+    .category-grid-row2 {
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+}

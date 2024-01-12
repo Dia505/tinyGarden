@@ -53,17 +53,6 @@ function Home() {
     return (
         <>
             <HeaderUser/>
-            {/*<div className={"header-home"}>*/}
-            {/*    <div className={"logo-container-home"}>*/}
-            {/*        <img className={"logo-home"} src={"src/assets/home/logo.png"}/>*/}
-            {/*    </div>*/}
-            {/*    <div className={"header-button-container-home"}>*/}
-            {/*        <p className={"header-button-home"}>Home</p>*/}
-            {/*        <p className={"header-button-home"}>Plants</p>*/}
-            {/*        <img className={"cart-btn-home"} src={"src/assets/home/cart.png"}/>*/}
-            {/*        <button className={"login-button-home"}>Login</button>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
 
             <div className={"centre-home"}>
                 <div className={"home-heading-container"}>

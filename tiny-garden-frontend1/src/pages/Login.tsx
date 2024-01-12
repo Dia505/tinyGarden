@@ -34,7 +34,7 @@ function Login() {
 
                     <div className={"login-button-container"}>
                         <button className={"login-btn-login"}>Login</button>
-                        <Link to={"/registration"}><button className={"sign-up-login"}>Sing up</button></Link>
+                        <Link to={"/registration"}><button className={"sign-up-login"}>Sign up</button></Link>
                     </div>
                 </div>
             </div>

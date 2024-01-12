@@ -8,6 +8,9 @@ import AdminCustomer from "./pages/AdminCustomer.tsx";
 import DemoAdminCustomer from "./pages/DemoAdminCustomer.tsx";
 import HeaderUser from "./pages/HeaderUser.tsx";
 import Login from "./pages/Login.tsx";
+import Categories from "./pages/Categories.tsx";
+import AdminFoliage from "./pages/AdminFoliage.tsx";
+import HeaderAdmin from "./pages/HeaderAdmin.tsx";
 
 const router = createBrowserRouter(
     [
@@ -34,6 +37,18 @@ const router = createBrowserRouter(
         {
             path:"/demoAdCustomer",
             element: <DemoAdminCustomer/>
+        },
+        {
+            path: "/categories",
+            element: <Categories/>
+        },
+        {
+            path: "/adminFoliage",
+            element: <AdminFoliage/>
+        },
+        {
+            path: "/headerAdmin",
+            element: <HeaderAdmin/>
         }
     ]
 )

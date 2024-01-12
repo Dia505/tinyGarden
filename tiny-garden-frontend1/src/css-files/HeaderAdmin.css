@@ -1,0 +1,55 @@
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 20px;
+    top: 10px;
+    right: 40px;
+}
+.logo-admin {
+    height: 100px;
+}
+.left-section-admin {
+    display: flex;
+    align-items: center;
+}
+.customer-btn-admin, .product-btn-admin, .order-btn-admin {
+    margin-right: 40px;
+    font-size: 18px;
+}
+.customer-btn-admin:hover, .product-btn-admin:hover, .order-btn-admin:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.product-btn-admin {
+    position: relative;
+}
+.product-drop-down-admin {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: -40px;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+.product-btn-admin:hover .product-drop-down-admin {
+    opacity: 1;
+}
+.drop-down-foliage, .drop-down-succulent, .drop-down-cactus, .drop-down-flowering, .drop-down-herb {
+    background-color: #A4BE8B;
+    color: #463F3A;
+    border-radius: unset;
+    width: 150px;
+}
+.drop-down-foliage:hover, .drop-down-succulent:hover, .drop-down-cactus:hover, .drop-down-flowering:hover, .drop-down-herb:hover {
+    border: solid #463F3A 3px;
+    border-radius: 5px;
+}
+.logout-btn-admin {
+    height: 35px;
+    background-color: #463F3A;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    width: 115px;
+}

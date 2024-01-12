@@ -1,4 +1,5 @@
 import "../css-files/HeaderUser.css"
+import {Link} from "react-router-dom";
 function HeaderUser() {
     return (
         <>
@@ -7,10 +8,10 @@ function HeaderUser() {
                     <img className={"logo"} src={"src/assets/home/logo.png"}/>
                 </div>
                 <div className={"header-button-container"}>
-                    <p className={"header-button"}>Home</p>
-                    <p className={"header-button"}>Plants</p>
+                    <Link to={"/"}><p className={"header-button"}>Home</p></Link>
+                    <Link to={"/categories"}><p className={"header-button"}>Plants</p></Link>
                     <img className={"cart-btn"} src={"src/assets/home/cart.png"}/>
-                    <button className={"login-button"}>Login</button>
+                    <Link to={"/login"}><button className={"login-button"}>Login</button></Link>
                 </div>
             </div>
         </>
