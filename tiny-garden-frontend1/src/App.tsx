@@ -11,6 +11,7 @@ import Login from "./pages/Login.tsx";
 import Categories from "./pages/Categories.tsx";
 import AdminFoliage from "./pages/AdminFoliage.tsx";
 import HeaderAdmin from "./pages/HeaderAdmin.tsx";
+import AddProductForm from "./pages/AddProductForm.tsx";
 
 const router = createBrowserRouter(
     [
@@ -49,6 +50,10 @@ const router = createBrowserRouter(
         {
             path: "/headerAdmin",
             element: <HeaderAdmin/>
+        },
+        {
+            path: "/addProductForm",
+            element: <AddProductForm/>
         }
     ]
 )

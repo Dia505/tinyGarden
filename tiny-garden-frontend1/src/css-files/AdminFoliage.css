@@ -1,0 +1,21 @@
+.top-section-adFoliage {
+    display: flex;
+    margin-top: 60px;
+    align-items: center;
+    gap: 400px;
+}
+.title-adFoliage {
+    font-family: "Henny Penny";
+    color: #463F3A;
+    font-size: 32px;
+    margin-left: 500px;
+}
+.add-btn-adFoliage {
+    background-color: #463F3A;
+    height: 40px;
+}
+.addForm-container-adFoliage {
+    width: 750px;
+    margin-left: 250px;
+    display: ${isAddFormVisible ? "block" : "none"};
+}

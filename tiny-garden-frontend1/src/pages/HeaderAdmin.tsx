@@ -13,11 +13,12 @@ function HeaderAdmin() {
                     <div className={"product-admin-container"}>
                         <p className={"product-btn-admin"}>Products
                             <div className={"product-drop-down-admin"}>
-                                <button className={"drop-down-foliage"}>Foliage</button>
-                                <button className={"drop-down-succulent"}>Succulents</button>
-                                <button className={"drop-down-cactus"}>Cacti</button>
-                                <button className={"drop-down-flowering"}>Flowering</button>
-                                <button className={"drop-down-herb"}>Herbs</button>
+                                <button className={"drop-down-btn"}>Foliage</button>
+                                <button className={"drop-down-btn"}>Succulents</button>
+                                <button className={"drop-down-btn"}>Cacti</button>
+                                <button className={"drop-down-btn"}>Flowering</button>
+                                <button className={"drop-down-btn"}>Herbs</button>
+                                <button className={"drop-down-btn"}>Analytics</button>
                             </div>
                         </p>
                     </div>

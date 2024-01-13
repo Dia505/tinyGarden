@@ -1,0 +1,53 @@
+.addForm-main-container {
+    background-color: #E6B4C1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.addForm-sub-container {
+    display: flex;
+    gap: 40px;
+}
+.image-upload-container {
+    border: dotted #463F3A;
+    height: 400px;
+    width: 300px;
+}
+.add-image-text {
+    font-size: 42px;
+    margin-top: 150px;
+}
+.product-image-input {
+    display: none;
+}
+
+.produt-name-price-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.product-name-price-input {
+    width: 300px;
+    border: solid #463F3A;
+}
+.addForm-divider {
+    border: solid #463F3A 1px;
+    margin-top: 15px;
+}
+.product-desc-text {
+    font-size: 20px;
+    color: #463F3A;
+    margin-right: 190px;
+    margin-top: 0px;
+}
+.product-desc-input {
+    width: 300px;
+    height: 200px;
+    margin-top: -20px;
+}
+.add-btn-product {
+    background-color: #463F3A;
+    width: 250px;
+    margin-top: 20px;
+}

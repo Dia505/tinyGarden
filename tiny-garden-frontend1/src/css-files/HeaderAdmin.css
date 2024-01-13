@@ -36,13 +36,13 @@
 .product-btn-admin:hover .product-drop-down-admin {
     opacity: 1;
 }
-.drop-down-foliage, .drop-down-succulent, .drop-down-cactus, .drop-down-flowering, .drop-down-herb {
+.drop-down-btn {
     background-color: #A4BE8B;
     color: #463F3A;
     border-radius: unset;
     width: 150px;
 }
-.drop-down-foliage:hover, .drop-down-succulent:hover, .drop-down-cactus:hover, .drop-down-flowering:hover, .drop-down-herb:hover {
+.drop-down-btn:hover {
     border: solid #463F3A 3px;
     border-radius: 5px;
 }
