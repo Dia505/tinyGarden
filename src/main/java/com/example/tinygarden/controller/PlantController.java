@@ -17,7 +17,7 @@ public class PlantController {
     private final PlantService plantService;
 
     @PostMapping("/save-plant-details")
-    public String insertData(@RequestBody PlantDto plantDto) {
+    public String insertData(@ModelAttribute PlantDto plantDto) {
         System.out.println(plantDto);
         plantService.save(plantDto);
         return "Data saved";

@@ -27,7 +27,7 @@
     flex-direction: column;
     gap: 15px;
 }
-.product-name-price-input {
+.product-input {
     width: 300px;
     border: solid #463F3A;
 }
@@ -41,13 +41,34 @@
     margin-right: 190px;
     margin-top: 0px;
 }
-.product-desc-input {
-    width: 300px;
-    height: 200px;
-    margin-top: -20px;
-}
 .add-btn-product {
     background-color: #463F3A;
     width: 250px;
     margin-top: 20px;
+}
+.product-desc-input-container {
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.plant-dropdown {
+    background-color: white;
+    color: #463F3A;
+    width: 250px;
+    height: 40px;
+    border: solid 2px #463F3A;
+    border-radius: 5px;
+}
+.light-water-req-container {
+    display: flex;
+    gap: 10px;
+}
+.req-dropdown {
+    background-color: white;
+    color: #463F3A;
+    width: 170px;
+    height: 40px;
+    border: solid 2px #463F3A;
+    border-radius: 5px;
 }

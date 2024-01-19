@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -12,22 +13,31 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PlantDto {
     private Integer plantId;
+
     @NotNull
     private String plantName;
+
     @NotNull
     private String type;
+
     @NotNull
     private Double price;
-    @NotNull
-    private String image;
+
+    private MultipartFile image;
+
     @NotNull
     private String sciName;
+
     @NotNull
     private String lightReq;
+
     @NotNull
     private String waterReq;
+
     @NotNull
     private String petFriendly;
+
     @NotNull
     private String addFeature;
+
 }

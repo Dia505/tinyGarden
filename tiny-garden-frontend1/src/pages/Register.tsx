@@ -3,20 +3,26 @@ import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {useMutation} from "react-query";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 function Register() {
+    const navigate = useNavigate();
+
     const saveData = useMutation({
         mutationKey:"SAVEDATA",
         mutationFn:(requestData:any)=> {
             console.log(requestData)
             return axios.post("http://localhost:8080/customer/save-customer-details",requestData)
+        },
+        onSuccess: () => {
+            alert("Your account has been created!");
+            navigate("/login");
         }
     })
 
     const {
         register,
-        handleSubmit,
-        formState
+        handleSubmit
     } = useForm();
 
     const onSubmit = (values:unknown) => {

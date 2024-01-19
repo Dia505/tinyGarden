@@ -5,16 +5,28 @@ import com.example.tinygarden.entity.Plant;
 import com.example.tinygarden.repository.PlantRepository;
 import com.example.tinygarden.service.PlantService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class PlantServiceImpl implements PlantService {
+    @Autowired
     private final PlantRepository plantRepository;
 
+    @Value("${upload.path}")
+    private String uploadPath;
     @Override
     public String save(PlantDto plantDto) {
         Plant plant = new Plant();
@@ -27,13 +39,27 @@ public class PlantServiceImpl implements PlantService {
         plant.setPlantName(plantDto.getPlantName());
         plant.setType(plantDto.getType());
         plant.setPrice(plantDto.getPrice());
-        plant.setImage(plantDto.getImage());
         plant.setSciName(plantDto.getSciName());
         plant.setLightReq(plantDto.getLightReq());
         plant.setWaterReq(plantDto.getWaterReq());
         plant.setPetFriendly(plantDto.getPetFriendly());
         plant.setAddFeature(plantDto.getAddFeature());
 
+        String fileName = UUID.randomUUID().toString()+"_"+plantDto.getImage().getOriginalFilename();
+        Path filePath = Paths.get(uploadPath, fileName);
+
+        String trimmedPath = StringUtils.trimAllWhitespace(filePath.toString());
+
+        try {
+            System.out.println("Source Path: " + plantDto.getImage().getOriginalFilename());
+            System.out.println("Destination Path: " + filePath);
+
+            Files.copy(plantDto.getImage().getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+        }
+        catch(IOException e) {
+            throw new RuntimeException(e);
+        }
+        plant.setImage(fileName);
         plantRepository.save(plant);
         return "Data saved";
     }
