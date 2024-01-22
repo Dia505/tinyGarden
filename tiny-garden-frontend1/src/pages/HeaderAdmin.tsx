@@ -1,4 +1,5 @@
 import "../css-files/HeaderAdmin.css"
+import {Link} from "react-router-dom";
 function HeaderAdmin() {
     return (
         <>
@@ -7,13 +8,12 @@ function HeaderAdmin() {
                     <img className={"logo-admin"} src={"src/assets/logo2.png"}/>
                 </div>
                 <div className={"left-section-admin"}>
-                    <p className={"customer-btn-admin"}>Customers</p>
-
+                    <Link to={"/adminCustomer"}><p className={"customer-btn-admin"}>Customers</p></Link>
 
                     <div className={"product-admin-container"}>
                         <p className={"product-btn-admin"}>Products
                             <div className={"product-drop-down-admin"}>
-                                <button className={"drop-down-btn"}>Foliage</button>
+                                <Link to={"/adminFoliage"}><button className={"drop-down-btn"}>Foliage</button></Link>
                                 <button className={"drop-down-btn"}>Succulents</button>
                                 <button className={"drop-down-btn"}>Cacti</button>
                                 <button className={"drop-down-btn"}>Flowering</button>

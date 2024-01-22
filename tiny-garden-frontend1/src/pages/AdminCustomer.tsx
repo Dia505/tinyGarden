@@ -1,6 +1,7 @@
 import "../css-files/AdminCustomer.css"
 import {useQuery} from "react-query";
 import axios from "axios";
+import HeaderAdmin from "./HeaderAdmin.tsx";
 
 function AdminCustomer() {
     const {data} = useQuery({
@@ -12,17 +13,7 @@ function AdminCustomer() {
 
     return (
         <>
-            <div className={"header-adCustomer"}>
-                <div className={"right-section-adCustomer"}>
-                    <img className={"logo-adCustomer"} src={"src/assets/logo2.png"}/>
-                </div>
-                <div className={"left-section-adCustomer"}>
-                    <p className={"customer-btn-adCustomer"}>Customers</p>
-                    <p className={"product-btn-adCustomer"}>Products</p>
-                    <p className={"order-btn-adCustomer"}>Orders</p>
-                    <button className={"logout-btn-adCustomer"}>Log out</button>
-                </div>
-            </div>
+            <HeaderAdmin/>
 
             <div className={"centre-adCustomer"}>
                 <p className={"page-heading-adCustomer"}>Customer Details</p>

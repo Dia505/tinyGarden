@@ -12,6 +12,8 @@ import Categories from "./pages/Categories.tsx";
 import AdminFoliage from "./pages/AdminFoliage.tsx";
 import HeaderAdmin from "./pages/HeaderAdmin.tsx";
 import AddProductForm from "./pages/AddProductForm.tsx";
+import EditProductForm from "./pages/EditProductForm.tsx";
+import Foliage from "./pages/Foliage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -54,6 +56,14 @@ const router = createBrowserRouter(
         {
             path: "/addProductForm",
             element: <AddProductForm/>
+        },
+        {
+            path: "/editProductForm",
+            element: <EditProductForm/>
+        },
+        {
+            path: "/foliage",
+            element: <Foliage/>
         }
     ]
 )

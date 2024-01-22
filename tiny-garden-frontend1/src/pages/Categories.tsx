@@ -1,5 +1,6 @@
 import "../css-files/Categories.css"
 import HeaderUser from "./HeaderUser.tsx";
+import {Link} from "react-router-dom";
 function Categories() {
     return (
         <>
@@ -11,10 +12,10 @@ function Categories() {
                 </div>
                 <div className={"category-grid"}>
                     <div className={"category-grid-row1"}>
-                        <div className={"foliage-div-category"}>
+                        <Link to={"/foliage"}><div className={"foliage-div-category"}>
                             <img className={"foliage-img-category"} src={"src/assets/categories/foliage.png"}/>
                             <p className={"foliage-text-category"}>Foliage Plants</p>
-                        </div>
+                        </div></Link>
 
                         <div className={"succulent-div-category"}>
                             <img className={"succulent-img-category"} src={"src/assets/categories/succulent.png"}/>

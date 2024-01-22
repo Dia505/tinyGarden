@@ -1,4 +1,4 @@
-.addForm-main-container {
+.editForm-main-container {
     background-color: #E6B4C1;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -9,54 +9,54 @@
     top: 150px;
     z-index: 100;
 }
-.addForm-sub-container {
+.editForm-sub-container {
     display: flex;
     gap: 40px;
 }
-.image-upload-container {
+.edit-image-upload-container {
     border: dotted #463F3A;
     height: 400px;
     width: 300px;
-}
-.add-image-text {
-    font-size: 42px;
-    margin-top: 150px;
 }
 .product-image-input {
     display: none;
 }
 
-.produt-name-price-container {
+.edit-product-name-price-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.product-input {
+.edit-product-input {
     width: 300px;
     border: solid #463F3A;
 }
-.addForm-divider {
+.editForm-divider {
     border: solid #463F3A 1px;
     margin-top: 15px;
 }
-.product-desc-text {
+.edit-product-desc-text {
     font-size: 20px;
     color: #463F3A;
-    margin-right: 190px;
+    margin-right: 350px;
     margin-top: 0px;
 }
-.add-btn-product {
+.edit-btn-container {
+    display: flex;
+    gap: 10px;
+}
+.delete-btn-product, .update-btn-product {
     background-color: #463F3A;
     width: 250px;
     margin-top: 20px;
 }
-.product-desc-input-container {
+.edit-product-desc-input-container {
     margin-top: -10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.plant-dropdown {
+.edit-plant-dropdown {
     background-color: white;
     color: #463F3A;
     width: 250px;
@@ -64,11 +64,11 @@
     border: solid 2px #463F3A;
     border-radius: 5px;
 }
-.light-water-req-container {
+.edit-light-water-req-container {
     display: flex;
     gap: 10px;
 }
-.req-dropdown {
+.edit-req-dropdown {
     background-color: white;
     color: #463F3A;
     width: 170px;

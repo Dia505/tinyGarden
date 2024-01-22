@@ -19,3 +19,31 @@
     margin-left: 250px;
     display: ${isAddFormVisible ? "block" : "none"};
 }
+
+.adfoliage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 100px;
+    row-gap: 40px;
+    margin-left: 20px;
+}
+.adfoliage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.adfoliage-container p {
+    color: #463F3A;
+}
+.adfoliage-name {
+    font-size: 18px;
+}
+.adfoliage-price {
+    margin-top: -10px;
+}
+.adfoliage-img {
+    height: 200px;
+}
+.adfoliage-img:hover {
+    cursor: pointer;
+}
