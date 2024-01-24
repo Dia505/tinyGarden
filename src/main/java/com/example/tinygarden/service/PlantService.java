@@ -11,4 +11,6 @@ public interface PlantService {
     List<Plant> getByType(String type);
     Optional<Plant> getById(Integer plantId);
     String deleteById(Integer plantId);
+    String updatePlant(PlantDto plantDto);
+    String updatePlantWithoutImage(PlantDto plantDto);
 }

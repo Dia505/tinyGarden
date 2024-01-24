@@ -84,7 +84,7 @@ function AdminFoliage() {
 
                 {isEditFormVisible && (
                     <div className={"editForm-container-adFoliage"} ref={editFormRef}>
-                        <EditProductForm />
+                        <EditProductForm plantDetilFromAdminPage={plantDetails} />
                     </div>
                 )}
 

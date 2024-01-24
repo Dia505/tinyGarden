@@ -39,4 +39,16 @@ public class PlantController {
         plantService.deleteById(plantId);
         return "Data deleted";
     }
+
+    @PostMapping("/update-plant")
+    public String updatePlant(@ModelAttribute PlantDto plantDto) {
+        plantService.updatePlant(plantDto);
+        return "Plant image updated";
+    }
+
+    @PostMapping("/update-plant-without-image")
+    public String updatePlantWithoutImage(@RequestBody PlantDto plantDto) {
+        plantService.updatePlantWithoutImage(plantDto);
+        return "Plant details updated";
+    }
 }

@@ -60,4 +60,10 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.deleteById(orderId);
         return "Order deleted";
     }
+
+    @Override
+    public String deleteByPlant_PlantId(Integer plantId) {
+        orderRepository.deleteByPlant_PlantId(plantId);
+        return "Order associated to plant id deleted";
+    }
 }

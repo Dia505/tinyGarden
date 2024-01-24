@@ -11,4 +11,5 @@ public interface OrderService {
     List<Order> getAll();
     Optional<Order> getById(Integer orderId);
     String deleteById(Integer orderId);
+    String deleteByPlant_PlantId(Integer plantId);
 }

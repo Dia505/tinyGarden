@@ -23,9 +23,9 @@
 .adfoliage-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 100px;
-    row-gap: 40px;
-    margin-left: 20px;
+    column-gap: 40px;
+    row-gap: 30px;
+
 }
 .adfoliage-container {
     display: flex;
@@ -42,8 +42,52 @@
     margin-top: -10px;
 }
 .adfoliage-img {
-    height: 200px;
+    height: 350px;
+    width: 280px;
 }
 .adfoliage-img:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 1300px) {
+    .top-section-adFoliage {
+        margin-left: -100px;
+        gap: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top-section-adFoliage {
+        margin-left: -300px;
+        gap: 100px;
+    }
+    .title-adFoliage {
+        font-size: 28px;
+    }
+    .adfoliage-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .top-section-adFoliage {
+        margin-left: -400px;
+        gap: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .top-section-adFoliage {
+        margin-left: -500px;
+        gap: 130px;
+    }
+    .adfoliage-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .adfoliage-img {
+        height: 250px;
+        width: 200px;
+    }
+}
+

@@ -2,46 +2,107 @@ import "../css-files/EditProductForm.css"
 import HeaderAdmin from "./HeaderAdmin.tsx";
 import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
+import {useMutation} from "react-query";
+import axios from "axios";
 
-function EditProductForm() {
+export interface DataProps{
+    plantDetilFromAdminPage:any
+}
+function EditProductForm({plantDetilFromAdminPage}:DataProps) {
+    console.log(plantDetilFromAdminPage)
     const [isEditFormVisible, setEditFormVisible] = useState(false);
-    const { register, handleSubmit, setValue } = useForm();
     const [selectedType, setSelectedType] = useState("");
     const [selectedLightReq, setSelectedLightReq] = useState("");
     const [selectedWaterReq, setSelectedWaterReq] = useState("");
     const [selectedPetF, setSelectedPetF] = useState("");
-    const [plantDetails, setPlantDetails] = useState({});
+    const [plantDetails, setPlantDetails] = useState(plantDetilFromAdminPage);
+    const { register, handleSubmit, setValue } = useForm({defaultValues:plantDetails,values:plantDetails});
 
     useEffect(() => {
         console.log("plantDetails in useEffect:", plantDetails);
 
         if (isEditFormVisible && plantDetails && plantDetails.plantId) {
-            setValue("plantName", plantDetails?.plantName);
-            setValue("type", plantDetails?.type);
-            setValue("price", plantDetails?.price);
-            setValue("sciName", plantDetails?.sciName);
-            setValue("lightReq", plantDetails?.lightReq);
-            setValue("waterReq", plantDetails?.waterReq);
-            setValue("petFriendly", plantDetails?.petFriendly);
-            setValue("addFeature", plantDetails?.addFeature);
-        } else {
-            setValue("plantName", "");
-            setValue("type", "foliage");
-            setValue("price", "");
-            setValue("sciName", "");
-            setValue("lightReq", "low");
-            setValue("waterReq", "low");
-            setValue("petFriendly", "no");
-            setValue("plantName", "");
+        setSelectedType(plantDetails?.type);
+        setSelectedLightReq(plantDetails?.lightReq);
+        setSelectedWaterReq(plantDetails?.waterReq);
+        setSelectedPetF(plantDetails?.petFriendly);
         }
-    }, [isEditFormVisible, plantDetails, setValue, setSelectedType, setSelectedLightReq, setSelectedWaterReq, setSelectedPetF]);
+        else {
+            setSelectedType("foliage");
+            setSelectedLightReq("low");
+            setSelectedWaterReq("low");
+            setSelectedPetF("no");
+        }
+    }, [isEditFormVisible, plantDetails, setSelectedType, setSelectedLightReq, setSelectedWaterReq, setSelectedPetF]);
+
+    const deletePlant = useMutation({
+        mutationKey: ["DELETE PLANT"],
+        mutationFn: (plantId:number) => {
+            return axios.delete(`http://localhost:8080/api/delete-by-id/${plantId}`);
+            return axios.delete(`http://localhost:8080/api/delete-order-by-plant/${plantId}`);
+        },
+        onSuccess: () => {
+            setEditFormVisible(false);
+            alert("The plant has been deleted.");
+        }
+    })
+
+    const editPlant = useMutation({
+        mutationKey: "UPDATE_PLANT",
+        mutationFn: async (requestData: any) => {
+            console.log(requestData);
+            try {
+                const formData = new FormData();
+                if(requestData.image && requestData.image.length > 0) {
+                    formData.append("image", requestData.image[0]);
+                }
+                formData.append("plantName", requestData.plantName);
+                formData.append("type", requestData.type);
+                formData.append("price", requestData.price);
+                formData.append("sciName", requestData.sciName);
+                formData.append("lightReq", requestData.lightReq);
+                formData.append("waterReq", requestData.waterReq);
+                formData.append("petFriendly", requestData.petFriendly);
+                formData.append("addFeature", requestData.addFeature);
+                formData.append("plantId", requestData.plantId);
+
+                const response = await axios.post("http://localhost:8080/api/update-plant", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    }
+                });
+                console.log(response);
+                return response.data;
+            }
+            catch (error) {
+                console.error("Error uploading file:", error);
+            }
+        },
+        onSuccess: () => {
+            setEditFormVisible(false);
+            alert("Plant updated!");
+        }
+    });
+
+    const onSubmitEditPlant = async (formData: any): void => {
+        if(formData.image?.length !== 0) {
+            editPlant.mutate(formData);
+        }
+        else {
+            delete formData?.image;
+            const response = await axios.post("http://localhost:8080/api/update-plant-without-image", formData);
+            console.log(response);
+            setEditFormVisible(false);
+            alert("Plant details updated!");
+        }
+    }
 
     return (
         <>
             <HeaderAdmin/>
 
             <div className={"editForm-main-container"}>
-                <form>
+                <form onSubmit={handleSubmit(onSubmitEditPlant)}>
                     <div className={"editForm-sub-container"}>
                         <div className={"editForm-left-section"}>
                             <label className={"edit-image-upload-label"} htmlFor={"productImageId"}>
@@ -104,7 +165,9 @@ function EditProductForm() {
                             </div>
 
                             <div className={"edit-btn-container"}>
-                                <button className={"delete-btn-product"} type={"submit"}>Delete</button>
+                                <button className={"delete-btn-product"} type={"button"} onClick={() => {
+                                    deletePlant.mutate(plantDetails.plantId);
+                                }}>Delete</button>
                                 <button className={"update-btn-product"} type={"submit"}>Update</button>
                             </div>
                         </div>

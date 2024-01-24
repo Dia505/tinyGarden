@@ -76,3 +76,40 @@
     border: solid 2px #463F3A;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 1200px) {
+    .addForm-main-container {
+        left: 40px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 750px) {
+    .addForm-main-container {
+        left: 10px;
+        width: 400px;
+    }
+    .image-upload-container {
+        height: 350px;
+        width: 200px;
+        margin-top: 30px;
+    }
+    .add-image-text {
+        margin-top: 120px;
+    }
+    .product-input, .plant-dropdown {
+        width: 140px;
+    }
+    .light-water-req-container {
+        flex-direction: column;
+    }
+    .add-btn-product {
+        width: 100px;
+    }
+    .add-btn-container {
+        margin-left: -50px;
+    }
+    .addForm-divider {
+        width: 170px;
+        margin-left: 0px;
+    }
+}

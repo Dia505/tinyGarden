@@ -3,8 +3,9 @@
     justify-content: space-between;
     position: fixed;
     left: 20px;
-    top: 10px;
-    right: 40px;
+    top: 0px;
+    right: 0px;
+    background-color: #D6DBB6;
 }
 .logo-admin {
     height: 100px;
@@ -12,6 +13,7 @@
 .left-section-admin {
     display: flex;
     align-items: center;
+    margin-right: 30px;
 }
 .customer-btn-admin, .product-btn-admin, .order-btn-admin {
     margin-right: 40px;

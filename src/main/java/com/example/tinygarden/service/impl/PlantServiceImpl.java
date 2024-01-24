@@ -4,6 +4,7 @@ import com.example.tinygarden.dto.PlantDto;
 import com.example.tinygarden.entity.Plant;
 import com.example.tinygarden.repository.PlantRepository;
 import com.example.tinygarden.service.PlantService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -78,5 +79,51 @@ public class PlantServiceImpl implements PlantService {
     public String deleteById(Integer plantId) {
         plantRepository.deleteById(plantId);
         return "Data deleted";
+    }
+
+    @Override
+    public String updatePlant(PlantDto plantDto) {
+        Plant existingPlant = plantRepository.findById(plantDto.getPlantId())
+                .orElseThrow(() -> new EntityNotFoundException("Plant not found"));
+        existingPlant.setPlantName(plantDto.getPlantName());
+        existingPlant.setType(plantDto.getType());
+        existingPlant.setPrice(plantDto.getPrice());
+        existingPlant.setSciName(plantDto.getSciName());
+        existingPlant.setLightReq(plantDto.getLightReq());
+        existingPlant.setWaterReq(plantDto.getWaterReq());
+        existingPlant.setPetFriendly(plantDto.getPetFriendly());
+        existingPlant.setAddFeature(plantDto.getAddFeature());
+
+        String fileName = UUID.randomUUID().toString()+"_"+plantDto.getImage().getOriginalFilename();
+        Path filePath = Paths.get(uploadPath, fileName);
+
+        try {
+            Files.copy(plantDto.getImage().getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        existingPlant.setImage(fileName);
+        plantRepository.save(existingPlant);
+        return "Plant image updated";
+    }
+
+    @Override
+    public String updatePlantWithoutImage(PlantDto plantDto) {
+        Plant existingPlant = plantRepository.findById(plantDto.getPlantId())
+                .orElseThrow(() -> new EntityNotFoundException("Plant not found"));
+        existingPlant.setPlantName(plantDto.getPlantName());
+        existingPlant.setType(plantDto.getType());
+        existingPlant.setPrice(plantDto.getPrice());
+        existingPlant.setSciName(plantDto.getSciName());
+        existingPlant.setLightReq(plantDto.getLightReq());
+        existingPlant.setWaterReq(plantDto.getWaterReq());
+        existingPlant.setPetFriendly(plantDto.getPetFriendly());
+        existingPlant.setAddFeature(plantDto.getAddFeature());
+
+        plantRepository.save(existingPlant);
+
+        return "Plant details updated";
     }
 }
