@@ -2,9 +2,11 @@ package com.example.tinygarden.service.impl;
 
 import com.example.tinygarden.dto.PlantDto;
 import com.example.tinygarden.entity.Plant;
+import com.example.tinygarden.repository.OrderRepository;
 import com.example.tinygarden.repository.PlantRepository;
 import com.example.tinygarden.service.PlantService;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +25,8 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class PlantServiceImpl implements PlantService {
-    @Autowired
     private final PlantRepository plantRepository;
+    private final OrderRepository orderRepository;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -76,7 +78,9 @@ public class PlantServiceImpl implements PlantService {
     }
 
     @Override
+    @Transactional
     public String deleteById(Integer plantId) {
+        orderRepository.deleteOrderByPlant(plantId);
         plantRepository.deleteById(plantId);
         return "Data deleted";
     }

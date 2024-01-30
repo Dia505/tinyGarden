@@ -3,13 +3,19 @@ import {useMutation, useQuery} from "react-query";
 import axios from "axios";
 import {useState} from "react";
 import {useForm} from "react-hook-form";
-function AddProductForm() {
+
+interface AddProductFormProps {
+    onSubmit: () => Promise<void>;
+}
+
+const AddProductForm: React.FC<AddProductFormProps> = ({ onSubmit }) => {
     const [isAddFormVisible, setAddFormVisible] = useState(false);
     const { register, handleSubmit, setValue } = useForm();
     const [selectedType, setSelectedType] = useState("");
     const [selectedLightReq, setSelectedLightReq] = useState("");
     const [selectedWaterReq, setSelectedWaterReq] = useState("");
     const [selectedPetF, setSelectedPetF] = useState("");
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const savePlant = useMutation({
         mutationKey: "SAVE_PLANT",
@@ -63,6 +69,7 @@ function AddProductForm() {
         formData.petFriendly = selectedPetF;
         savePlant.mutate(formData);
         clearAddForm();
+        onSubmit();
     }
 
     return (
@@ -73,10 +80,29 @@ function AddProductForm() {
                         <div className={"addForm-left-section"}>
                             <label className={"image-upload-label"} htmlFor={"productImageId"}>
                                 <div className={"image-upload-container"}>
-                                    <p className={"add-image-text"}>ADD IMAGE</p>
+                                    {selectedImage ? (
+                                        <img
+                                            className={"addForm-image"}
+                                            src={selectedImage}
+                                            alt="Selected Image"
+                                        />
+                                    ) : (
+                                        <p className={"add-image-text"}>ADD IMAGE</p>
+                                    )}
                                 </div>
                             </label>
-                            <input id={"productImageId"} type={"file"} className={"product-image-input"} {...register("image")}/>
+                            <input id={"productImageId"}
+                                   type={"file"}
+                                   className={"product-image-input"}
+                                   {...register("image", {
+                                       onChange: (e) => {
+                                           const file = e.target.files[0];
+                                           if(file) {
+                                               const imageUrl = URL.createObjectURL(file);
+                                               setSelectedImage(imageUrl);
+                                           }
+                                       }
+                                   })}/>
                         </div>
 
                         <div className={"addForm-right-section"}>

@@ -7,7 +7,7 @@
     position: fixed;
     left: 350px;
     top: 150px;
-    z-index: 100;
+    z-index: 200;
 }
 .addForm-sub-container {
     display: flex;
@@ -15,6 +15,13 @@
 }
 .image-upload-container {
     border: dotted #463F3A;
+    height: 400px;
+    width: 300px;
+}
+.image-upload-container:hover {
+    cursor: pointer;
+}
+.addForm-image {
     height: 400px;
     width: 300px;
 }
@@ -83,6 +90,16 @@
     }
 }
 
+@media screen and (max-width: 800px) {
+    .addForm-main-container {
+        left: 20px;
+        width: 650px;
+    }
+    .req-dropdown {
+        width: 150px;
+    }
+}
+
 @media screen and (min-width: 400px) and (max-width: 750px) {
     .addForm-main-container {
         left: 10px;
@@ -92,6 +109,10 @@
         height: 350px;
         width: 200px;
         margin-top: 30px;
+    }
+    .addForm-image {
+        height: 350px;
+        width: 200px;
     }
     .add-image-text {
         margin-top: 120px;

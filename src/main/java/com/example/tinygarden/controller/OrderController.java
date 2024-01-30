@@ -38,9 +38,4 @@ public class OrderController {
         return "Order deleted";
     }
 
-    @DeleteMapping("/delete-order-by-plant/{plantId}")
-    public String deleteByPlantId(@PathVariable("plantId") Integer plantId) {
-        orderService.deleteByPlant_PlantId(plantId);
-        return "Order associated to plant id deleted";
-    }
 }

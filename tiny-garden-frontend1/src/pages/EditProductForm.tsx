@@ -8,8 +8,12 @@ import axios from "axios";
 export interface DataProps{
     plantDetilFromAdminPage:any
 }
-function EditProductForm({plantDetilFromAdminPage}:DataProps) {
-    console.log(plantDetilFromAdminPage)
+
+interface EditProductFormProps {
+    onSubmit: () => Promise<void>;
+}
+
+const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit, plantDetilFromAdminPage }: EditProductFormProps & DataProps) => {
     const [isEditFormVisible, setEditFormVisible] = useState(false);
     const [selectedType, setSelectedType] = useState("");
     const [selectedLightReq, setSelectedLightReq] = useState("");
@@ -19,8 +23,6 @@ function EditProductForm({plantDetilFromAdminPage}:DataProps) {
     const { register, handleSubmit, setValue } = useForm({defaultValues:plantDetails,values:plantDetails});
 
     useEffect(() => {
-        console.log("plantDetails in useEffect:", plantDetails);
-
         if (isEditFormVisible && plantDetails && plantDetails.plantId) {
         setSelectedType(plantDetails?.type);
         setSelectedLightReq(plantDetails?.lightReq);
@@ -37,15 +39,14 @@ function EditProductForm({plantDetilFromAdminPage}:DataProps) {
 
     const deletePlant = useMutation({
         mutationKey: ["DELETE PLANT"],
-        mutationFn: (plantId:number) => {
-            return axios.delete(`http://localhost:8080/api/delete-by-id/${plantId}`);
-            return axios.delete(`http://localhost:8080/api/delete-order-by-plant/${plantId}`);
+        mutationFn: async (plantId: number) => {
+            await axios.delete(`http://localhost:8080/plant/delete-by-id/${plantId}`);
         },
         onSuccess: () => {
             setEditFormVisible(false);
-            alert("The plant has been deleted.");
+            alert("The product has been deleted");
         }
-    })
+    });
 
     const editPlant = useMutation({
         mutationKey: "UPDATE_PLANT",
@@ -66,7 +67,7 @@ function EditProductForm({plantDetilFromAdminPage}:DataProps) {
                 formData.append("addFeature", requestData.addFeature);
                 formData.append("plantId", requestData.plantId);
 
-                const response = await axios.post("http://localhost:8080/api/update-plant", formData, {
+                const response = await axios.post("http://localhost:8080/plant/update-plant", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     }
@@ -81,6 +82,7 @@ function EditProductForm({plantDetilFromAdminPage}:DataProps) {
         onSuccess: () => {
             setEditFormVisible(false);
             alert("Plant updated!");
+            onSubmit();
         }
     });
 
@@ -90,7 +92,7 @@ function EditProductForm({plantDetilFromAdminPage}:DataProps) {
         }
         else {
             delete formData?.image;
-            const response = await axios.post("http://localhost:8080/api/update-plant-without-image", formData);
+            const response = await axios.post("http://localhost:8080/plant/update-plant-without-image", formData);
             console.log(response);
             setEditFormVisible(false);
             alert("Plant details updated!");

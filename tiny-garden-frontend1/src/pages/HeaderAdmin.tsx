@@ -1,12 +1,37 @@
 import "../css-files/HeaderAdmin.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 function HeaderAdmin() {
+    const [sidenavWidth, setSidenavWidth] = useState<string>('0');
+    const navigate = useNavigate();
+    const [isSideNavDropDownVisible, setSideNavDropDownVisible] = useState(false);
+
+    const toggleNav = () => {
+        setSidenavWidth(prevWidth => (prevWidth === '0' ? '220px' : '0'));
+    };
+
+    const handleResize = () => {
+        if (window.innerWidth > 1040) {
+            setSidenavWidth('0');
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <>
             <div className={"header-admin"}>
                 <div className={"right-section-admin"}>
                     <img className={"logo-admin"} src={"src/assets/logo2.png"}/>
                 </div>
+
                 <div className={"left-section-admin"}>
                     <Link to={"/adminCustomer"}><p className={"customer-btn-admin"}>Customers</p></Link>
 
@@ -14,7 +39,7 @@ function HeaderAdmin() {
                         <p className={"product-btn-admin"}>Products
                             <div className={"product-drop-down-admin"}>
                                 <Link to={"/adminFoliage"}><button className={"drop-down-btn"}>Foliage</button></Link>
-                                <button className={"drop-down-btn"}>Succulents</button>
+                                <Link to={"/adminSucculent"}><button className={"drop-down-btn"}>Succulents</button></Link>
                                 <button className={"drop-down-btn"}>Cacti</button>
                                 <button className={"drop-down-btn"}>Flowering</button>
                                 <button className={"drop-down-btn"}>Herbs</button>
@@ -25,6 +50,31 @@ function HeaderAdmin() {
 
                     <p className={"order-btn-admin"}>Orders</p>
                     <button className={"logout-btn-admin"}>Log out</button>
+                </div>
+
+                <div className="adminHeader-sidenav" style={{ width: sidenavWidth }}>
+                    <div className={"adminHeader-sideNav-btn-container"}>
+                        <Link to="/adminCustomer"><button className={"adminHeader-sideNav-btn"}>Customer</button></Link>
+                        <button className={"adminHeader-sideNav-btn"} onClick={() => setSideNavDropDownVisible(!isSideNavDropDownVisible)}>Products</button>
+
+                        {isSideNavDropDownVisible && (
+                            <div className={"adminHead-sideNav-product-options-div"}>
+                                <Link to="/adminFoliage"><button className={"adminHeader-sideNav-productBtn"}>Foliage </button></Link>
+                                <Link to="/adminSucculent"><button className={"adminHeader-sideNav-productBtn"}>Succulents</button></Link>
+                                <Link to="/admin"><button className={"adminHeader-sideNav-productBtn"}>Cacti</button></Link>
+                                <Link to="/admin"><button className={"adminHeader-sideNav-productBtn"}>FLowering</button></Link>
+                                <Link to="/admin"><button className={"adminHeader-sideNav-productBtn"}>Herb</button></Link>
+                            </div>
+                        )}
+
+                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
+                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Log out</button></Link>
+
+                    </div>
+                </div>
+
+                <div className="adminHeader-openSideNav-btn-div" onClick={toggleNav}>
+                    <button className="adminHeader-openSideNav-btn"><FontAwesomeIcon icon={faBars} /></button>
                 </div>
             </div>
         </>

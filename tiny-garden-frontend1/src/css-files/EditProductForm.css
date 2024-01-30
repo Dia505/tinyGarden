@@ -80,3 +80,51 @@
     border: solid 2px #463F3A;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 1200px) {
+    .editForm-main-container {
+        left: 40px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .editForm-main-container {
+        left: 20px;
+        width: 650px;
+    }
+    .edit-req-dropdown {
+        width: 150px;
+    }
+    .delete-btn-product, .update-btn-product {
+        width: 150px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 750px) {
+    .editForm-main-container {
+        left: 10px;
+        width: 400px;
+    }
+    .edit-image-upload-container {
+        height: 350px;
+        width: 200px;
+        margin-top: 30px;
+    }
+    .editForm-image {
+        height: 350px;
+        width: 200px;
+    }
+    .edit-product-input, .edit-plant-dropdown {
+        width: 140px;
+    }
+    .edit-light-water-req-container {
+        flex-direction: column;
+    }
+    .edit-btn-container {
+        margin-left: -150px;
+    }
+    .editForm-divider {
+        width: 170px;
+        margin-left: 0px;
+    }
+}

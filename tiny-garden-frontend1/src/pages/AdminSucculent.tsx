@@ -1,34 +1,34 @@
-import HeaderAdmin from "./HeaderAdmin.tsx";
-import "../css-files/AdminFoliage.css"
-import AddProductForm from "./AddProductForm.tsx";
-import {useEffect, useState, useRef} from "react";
-import axios from "axios";
-import EditProductForm from "./EditProductForm.tsx";
+import "../css-files/AdminSucculent.css"
+import {useEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
-import { useQuery } from "react-query";
+import axios from "axios";
+import {useQuery} from "react-query";
+import HeaderAdmin from "./HeaderAdmin.tsx";
+import AddProductForm from "./AddProductForm.tsx";
+import EditProductForm from "./EditProductForm.tsx";
 
-function AdminFoliage() {
+function AdminSucculent() {
     const [isAddFormVisible, setAddFormVisible] = useState(false);
     const [isEditFormVisible, setEditFormVisible] = useState(false);
-    const [foliagePlants, setFoliagePlants] = useState([]);
+    const [succulentPlants, setSucculentPlants] = useState([]);
     const { setValue } = useForm();
     const [plantDetails, setPlantDetails] = useState({});
 
-    const fetchFoliagePlants = async () => {
+    const fetchSucculentPlants = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/plant/get-by-type/foliage");
-            setFoliagePlants(response.data);
+            const response = await axios.get("http://localhost:8080/plant/get-by-type/succulent");
+            setSucculentPlants(response.data);
         }
         catch(error) {
-            console.error("Error fetching foliage plants: ",error);
+            console.error("Error fetching succulent plants: ",error);
         }
     };
 
     useEffect(() => {
-        fetchFoliagePlants()
+        fetchSucculentPlants()
     }, []);
 
-    const { refetch: refetchFoliagePlants } = useQuery("foliagePlants", fetchFoliagePlants);
+    const { refetch: refetchSucculentPlants } = useQuery("succulentPlants", fetchSucculentPlants);
 
     const addFormRef = useRef(null);
     const editFormRef = useRef(null);
@@ -38,7 +38,7 @@ function AdminFoliage() {
             const addForm = addFormRef.current;
             const editForm = editFormRef.current;
 
-            if (addForm && !addForm.contains(event.target) && event.target.className !== "add-btn-adFoliage") {
+            if (addForm && !addForm.contains(event.target) && event.target.className !== "add-btn-adSucculent") {
                 setAddFormVisible(false);
             }
 
@@ -69,13 +69,13 @@ function AdminFoliage() {
     };
 
     const handleAddFormSubmit = async () => {
-        await refetchFoliagePlants();
+        await refetchSucculentPlants();
 
         setAddFormVisible(false);
     };
 
     const handleEditFormSubmit = async () => {
-        await refetchFoliagePlants();
+        await refetchSucculentPlants();
 
         setEditFormVisible(false);
     };
@@ -84,38 +84,38 @@ function AdminFoliage() {
         <>
             <HeaderAdmin/>
 
-            <div className={"centre-adFoliage"}>
-                <div className={"top-section-adFoliage"}>
-                    <p className={"title-adFoliage"}>Foliage plants</p>
-                    <button className={"add-btn-adFoliage"} onClick={() => {
+            <div className={"centre-adSucculent"}>
+                <div className={"top-section-adSucculent"}>
+                    <p className={"title-adSucculent"}>Succulents</p>
+                    <button className={"add-btn-adSucculent"} onClick={() => {
                         setAddFormVisible(!isAddFormVisible);
                     }}>Add product</button>
                 </div>
 
                 {isAddFormVisible && (
-                    <div className={"addForm-container-adFoliage"} ref={addFormRef}>
+                    <div className={"addForm-container-adSucculent"} ref={addFormRef}>
                         <AddProductForm onSubmit={handleAddFormSubmit} />
                     </div>
                 )}
 
                 {isEditFormVisible && (
-                    <div className={"editForm-container-adFoliage"} ref={editFormRef}>
-                        <EditProductForm plantDetilFromAdminPage={plantDetails} onSubmit={handleEditFormSubmit}/>
+                    <div className={"editForm-container-adSucculent"} ref={editFormRef}>
+                        <EditProductForm plantDetilFromAdminPage={plantDetails} onSubmit={handleAddFormSubmit} />
                     </div>
                 )}
 
-                <div className={"adfoliage-grid"}>
-                    {foliagePlants.map((plant) => (
-                        <div className={"adfoliage-container"} key={plant.plantId}>
+                <div className={"adSucculent-grid"}>
+                    {succulentPlants.map((plant) => (
+                        <div className={"adSucculent-container"} key={plant.plantId}>
                             <img
-                                className={"adfoliage-img"}
+                                className={"adSucculent-img"}
                                 src={`/${plant.image}`}
                                 onClick={() => {
                                     handleEditClick(plant.plantId);
                                 }}
                             />
-                            <p className={"adfoliage-name"}>{plant.plantName}</p>
-                            <p className={"adfoliage-price"}>Rs. {plant.price}</p>
+                            <p className={"adSucculent-name"}>{plant.plantName}</p>
+                            <p className={"adSucculent-price"}>Rs. {plant.price}</p>
                         </div>
                     ))}
                 </div>
@@ -124,4 +124,5 @@ function AdminFoliage() {
         </>
     )
 }
-export default AdminFoliage;
+
+export default AdminSucculent;

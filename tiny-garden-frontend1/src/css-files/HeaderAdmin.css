@@ -55,3 +55,64 @@
     padding-bottom: 30px;
     width: 115px;
 }
+
+.adminHeader-sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 70;
+    top: 10vh;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: #E6B4C1;
+}
+
+.adminHeader-sideNav-btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.adminHeader-openSideNav-btn-div {
+    margin-top: 10px;
+}
+.adminHeader-openSideNav-btn {
+    background-color: #D6DBB6;
+    color: #463F3A;
+    font-size: 26px;
+    margin-top: 10px;
+}
+.adminHeader-openSideNav-btn:hover {
+    border: none;
+}
+.adminHeader-sideNav-btn, .adminHeader-sideNav-productBtn {
+    width: 100%;
+    height: 60px;
+    background-color: #E6B4C1;
+    color: #463F3A;
+}
+.adminHeader-sideNav-btn:hover {
+    border: solid #463F3A 2px;
+}
+
+.adminHeader-sideNav-btn button {
+    background-color: #463F3A;
+    color: white;
+}
+
+@media screen and (min-width: 1041px) {
+    .adminHeader-sidenav {
+        display: none;
+    }
+    .adminHeader-click {
+        display: none;
+    }
+    .adminHeader-openSideNav-btn-div {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1041px) {
+    .left-section-admin {
+        display: none;
+    }
+}
