@@ -15,6 +15,10 @@ import AddProductForm from "./pages/AddProductForm.tsx";
 import EditProductForm from "./pages/EditProductForm.tsx";
 import Foliage from "./pages/Foliage.tsx";
 import AdminSucculent from "./pages/AdminSucculent.tsx";
+import ProductAnalytics from "./pages/ProductAnalytics.tsx";
+import AdminCactus from "./pages/AdminCactus.tsx";
+import AdminFlower from "./pages/AdminFlower.tsx";
+import AdminHerb from "./pages/AdminHerb.tsx";
 
 const router = createBrowserRouter(
     [
@@ -69,6 +73,22 @@ const router = createBrowserRouter(
         {
             path: "/adminSucculent",
             element: <AdminSucculent/>
+        },
+        {
+            path: "/productAnalytics",
+            element: <ProductAnalytics/>
+        },
+        {
+            path: "/adminCactus",
+            element: <AdminCactus/>
+        },
+        {
+            path: "/adminFlower",
+            element: <AdminFlower/>
+        },
+        {
+            path: "/adminHerb",
+            element: <AdminHerb/>
         }
     ]
 )

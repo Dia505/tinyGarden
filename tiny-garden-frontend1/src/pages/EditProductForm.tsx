@@ -87,7 +87,7 @@ const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit,
     });
 
     const onSubmitEditPlant = async (formData: any): void => {
-        if(formData.image?.length !== 0) {
+        if(typeof formData.image !== "string") {
             editPlant.mutate(formData);
         }
         else {

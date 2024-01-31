@@ -1,13 +1,18 @@
 package com.example.tinygarden.controller;
 
 import com.example.tinygarden.dto.PlantDto;
+import com.example.tinygarden.entity.Customer;
 import com.example.tinygarden.entity.Plant;
 import com.example.tinygarden.service.PlantService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -50,5 +55,20 @@ public class PlantController {
     public String updatePlantWithoutImage(@RequestBody PlantDto plantDto) {
         plantService.updatePlantWithoutImage(plantDto);
         return "Plant details updated";
+    }
+
+    @GetMapping("/get-all-data")
+    public List<Plant> getAllData() {
+        return plantService.getAll();
+    }
+
+    @GetMapping("/plant-record")
+    public ResponseEntity<Object> findAllRecords() {
+        List<Plant> plants = plantService.getAll();
+        int totalRecords = plants.size();
+        Map<String, Object> response = new HashMap<>();
+        response.put("totalRecords", totalRecords);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

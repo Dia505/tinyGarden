@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 function HeaderAdmin() {
     const [sidenavWidth, setSidenavWidth] = useState<string>('0');
     const navigate = useNavigate();
@@ -40,10 +41,10 @@ function HeaderAdmin() {
                             <div className={"product-drop-down-admin"}>
                                 <Link to={"/adminFoliage"}><button className={"drop-down-btn"}>Foliage</button></Link>
                                 <Link to={"/adminSucculent"}><button className={"drop-down-btn"}>Succulents</button></Link>
-                                <button className={"drop-down-btn"}>Cacti</button>
-                                <button className={"drop-down-btn"}>Flowering</button>
-                                <button className={"drop-down-btn"}>Herbs</button>
-                                <button className={"drop-down-btn"}>Analytics</button>
+                                <Link to={"/adminCactus"}><button className={"drop-down-btn"}>Cacti</button></Link>
+                                <Link to={"/adminFlower"}><button className={"drop-down-btn"}>Flowering</button></Link>
+                                <Link to={"/adminHerb"}><button className={"drop-down-btn"}>Herbs</button></Link>
+                                <Link to={"/productAnalytics"}><button className={"drop-down-btn"}>Analytics</button></Link>
                             </div>
                         </p>
                     </div>
@@ -55,15 +56,16 @@ function HeaderAdmin() {
                 <div className="adminHeader-sidenav" style={{ width: sidenavWidth }}>
                     <div className={"adminHeader-sideNav-btn-container"}>
                         <Link to="/adminCustomer"><button className={"adminHeader-sideNav-btn"}>Customer</button></Link>
-                        <button className={"adminHeader-sideNav-btn"} onClick={() => setSideNavDropDownVisible(!isSideNavDropDownVisible)}>Products</button>
+                        <button className={"adminHeader-sideNav-btn"} onClick={() => setSideNavDropDownVisible(!isSideNavDropDownVisible)}>Products <FontAwesomeIcon icon={faCaretDown} /></button>
 
                         {isSideNavDropDownVisible && (
                             <div className={"adminHead-sideNav-product-options-div"}>
                                 <Link to="/adminFoliage"><button className={"adminHeader-sideNav-productBtn"}>Foliage </button></Link>
                                 <Link to="/adminSucculent"><button className={"adminHeader-sideNav-productBtn"}>Succulents</button></Link>
-                                <Link to="/admin"><button className={"adminHeader-sideNav-productBtn"}>Cacti</button></Link>
-                                <Link to="/admin"><button className={"adminHeader-sideNav-productBtn"}>FLowering</button></Link>
-                                <Link to="/admin"><button className={"adminHeader-sideNav-productBtn"}>Herb</button></Link>
+                                <Link to="/adminCactus"><button className={"adminHeader-sideNav-productBtn"}>Cacti</button></Link>
+                                <Link to="/adminFlower"><button className={"adminHeader-sideNav-productBtn"}>FLowering</button></Link>
+                                <Link to="/adminHerb"><button className={"adminHeader-sideNav-productBtn"}>Herb</button></Link>
+                                <Link to="/productAnalytics"><button className={"adminHeader-sideNav-productBtn"}>Product analytics</button></Link>
                             </div>
                         )}
 

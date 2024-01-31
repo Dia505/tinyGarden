@@ -7,6 +7,9 @@
     right: 0px;
     background-color: #D6DBB6;
 }
+.header-admin p {
+    font-family: "Nunito";
+}
 .logo-admin {
     height: 100px;
 }

@@ -121,7 +121,7 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSubmit }) => {
                                         {selectedType === "" && <option value="" disabled>Select type</option>}
                                         <option value="foliage">foliage</option>
                                         <option value="succulent">succulent</option>
-                                        <option value="cacti">cacti</option>
+                                        <option value="cactus">cactus</option>
                                         <option value="flowering">flowering</option>
                                         <option value="herb">herb</option>
                                     </select>

@@ -130,4 +130,9 @@ public class PlantServiceImpl implements PlantService {
 
         return "Plant details updated";
     }
+
+    @Override
+    public List<Plant> getAll() {
+        return plantRepository.findAll();
+    }
 }

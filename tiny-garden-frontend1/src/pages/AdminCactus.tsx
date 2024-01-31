@@ -1,4 +1,4 @@
-import "../css-files/AdminSucculent.css"
+import "../css-files/AdminCactus.css"
 import {useEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
 import axios from "axios";
@@ -6,29 +6,28 @@ import {useQuery} from "react-query";
 import HeaderAdmin from "./HeaderAdmin.tsx";
 import AddProductForm from "./AddProductForm.tsx";
 import EditProductForm from "./EditProductForm.tsx";
-
-function AdminSucculent() {
+function AdminCactus() {
     const [isAddFormVisible, setAddFormVisible] = useState(false);
     const [isEditFormVisible, setEditFormVisible] = useState(false);
-    const [succulentPlants, setSucculentPlants] = useState([]);
+    const [cactusPlants, setCactusPlants] = useState([]);
     const { setValue } = useForm();
     const [plantDetails, setPlantDetails] = useState({});
 
-    const fetchSucculentPlants = async () => {
+    const fetchCactusPlants = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/plant/get-by-type/succulent");
-            setSucculentPlants(response.data);
+            const response = await axios.get("http://localhost:8080/plant/get-by-type/cactus");
+            setCactusPlants(response.data);
         }
         catch(error) {
-            console.error("Error fetching succulent plants: ",error);
+            console.error("Error fetching cactus: ",error);
         }
     };
 
     useEffect(() => {
-        fetchSucculentPlants()
+        fetchCactusPlants()
     }, []);
 
-    const { refetch: refetchSucculentPlants } = useQuery("succulentPlants", fetchSucculentPlants);
+    const { refetch: refetchCactusPlants } = useQuery("cactusPlants", fetchCactusPlants);
 
     const addFormRef = useRef(null);
     const editFormRef = useRef(null);
@@ -38,7 +37,7 @@ function AdminSucculent() {
             const addForm = addFormRef.current;
             const editForm = editFormRef.current;
 
-            if (addForm && !addForm.contains(event.target) && event.target.className !== "add-btn-adSucculent") {
+            if (addForm && !addForm.contains(event.target) && event.target.className !== "add-btn-adCactus") {
                 setAddFormVisible(false);
             }
 
@@ -69,13 +68,13 @@ function AdminSucculent() {
     };
 
     const handleAddFormSubmit = async () => {
-        await refetchSucculentPlants();
+        await refetchCactusPlants();
 
         setAddFormVisible(false);
     };
 
     const handleEditFormSubmit = async () => {
-        await refetchSucculentPlants();
+        await refetchCactusPlants();
 
         setEditFormVisible(false);
     };
@@ -84,38 +83,38 @@ function AdminSucculent() {
         <>
             <HeaderAdmin/>
 
-            <div className={"centre-adSucculent"}>
-                <div className={"top-section-adSucculent"}>
-                    <p className={"title-adSucculent"}>Succulents</p>
-                    <button className={"add-btn-adSucculent"} onClick={() => {
+            <div className={"centre-adCactus"}>
+                <div className={"top-section-adCactus"}>
+                    <p className={"title-adCactus"}>Cacti</p>
+                    <button className={"add-btn-adCactus"} onClick={() => {
                         setAddFormVisible(!isAddFormVisible);
                     }}>Add product</button>
                 </div>
 
                 {isAddFormVisible && (
-                    <div className={"addForm-container-adSucculent"} ref={addFormRef}>
+                    <div className={"addForm-container-adCactus"} ref={addFormRef}>
                         <AddProductForm onSubmit={handleAddFormSubmit} />
                     </div>
                 )}
 
                 {isEditFormVisible && (
-                    <div className={"editForm-container-adSucculent"} ref={editFormRef}>
-                        <EditProductForm plantDetilFromAdminPage={plantDetails} onSubmit={handleEditFormSubmit} />
+                    <div className={"editForm-container-adCactus"} ref={editFormRef}>
+                        <EditProductForm plantDetilFromAdminPage={plantDetails} onSubmit={handleEditFormSubmit}/>
                     </div>
                 )}
 
-                <div className={"adSucculent-grid"}>
-                    {succulentPlants.map((plant) => (
-                        <div className={"adSucculent-container"} key={plant.plantId}>
+                <div className={"adCactus-grid"}>
+                    {cactusPlants.map((plant) => (
+                        <div className={"adCactus-container"} key={plant.plantId}>
                             <img
-                                className={"adSucculent-img"}
+                                className={"adCactus-img"}
                                 src={`/${plant.image}`}
                                 onClick={() => {
                                     handleEditClick(plant.plantId);
                                 }}
                             />
-                            <p className={"adSucculent-name"}>{plant.plantName}</p>
-                            <p className={"adSucculent-price"}>Rs. {plant.price}</p>
+                            <p className={"adCactus-name"}>{plant.plantName}</p>
+                            <p className={"adCactus-price"}>Rs. {plant.price}</p>
                         </div>
                     ))}
                 </div>
@@ -124,5 +123,4 @@ function AdminSucculent() {
         </>
     )
 }
-
-export default AdminSucculent;
+export default AdminCactus;

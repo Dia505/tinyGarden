@@ -4,9 +4,13 @@ import com.example.tinygarden.dto.CustomerDto;
 import com.example.tinygarden.entity.Customer;
 import com.example.tinygarden.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -35,5 +39,15 @@ public class CustomerController {
     public String deleteById(@PathVariable("customerId") Integer customerId) {
         customerService.deleteById(customerId);
         return "Data deleted";
+    }
+
+    @GetMapping("/customer-record")
+    public ResponseEntity<Object> findAllRecords() {
+        List<Customer> customers = customerService.getAll();
+        int totalRecords = customers.size();
+        Map<String, Object> response = new HashMap<>();
+        response.put("totalRecords", totalRecords);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

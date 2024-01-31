@@ -1,44 +1,45 @@
-.centre-adCustomer {
+.centre-adPlant {
     margin-top: 70px;
     display: flex;
     flex-direction: column;
     margin-right: 1000px;
 }
-.page-heading-adCustomer {
+.page-heading-adPlant {
     color: #463F3A;
     font-size: 32px;
     font-weight: bold;
 }
-.table-adCustomer {
+.table-adPlant {
     border-style: solid;
     border-color: #463F3A;
     border-radius: 10px;
-    width: 80vw;
+    width: 85vw;
     margin-top: 20px;
+
+    padding-left: 20px;
 }
 td {
     color: #463F3A;
     font-family: "Nunito";
     font-size: 18px;
-    padding: 10px;
 }
 
-.search-container-adCustomer {
+.search-container-adPlant {
     display: flex;
     align-items: center;
     margin-left: 15px;
     margin-top: 20px;
 }
-.search-btn-adCustomer {
+.search-btn-adPlant {
     margin-left: -30px;
     color: #463F3A;
     font-size: 20px;
 }
-.search-btn-adCustomer:hover {
+.search-btn-adPlant:hover {
     cursor: pointer;
 }
 
-.admin-customer-record-container {
+.admin-plant-record-container {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -48,21 +49,14 @@ td {
 
     padding-left: 25px;
 }
-.admin-customer-records {
+.admin-plant-records {
     display: flex;
     flex-direction: column;
     align-items: start;
 }
-.customer-record-icon {
+.plant-record-icon {
     font-size: 55px;
 }
-.customer-number-data {
+.plant-number-data {
     margin-top: -10px;
-}
-
-@media screen and (max-width: 1200px) {
-    td {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
 }

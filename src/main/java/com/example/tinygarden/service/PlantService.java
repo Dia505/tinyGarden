@@ -13,4 +13,5 @@ public interface PlantService {
     String deleteById(Integer plantId);
     String updatePlant(PlantDto plantDto);
     String updatePlantWithoutImage(PlantDto plantDto);
+    List<Plant> getAll();
 }
