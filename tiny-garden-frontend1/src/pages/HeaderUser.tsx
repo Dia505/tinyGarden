@@ -1,6 +1,29 @@
 import "../css-files/HeaderUser.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars, faCaretDown} from "@fortawesome/free-solid-svg-icons";
 function HeaderUser() {
+    const [sidenavWidth, setSidenavWidth] = useState<string>('0');
+    const navigate = useNavigate();
+
+    const toggleNav = () => {
+        setSidenavWidth(prevWidth => (prevWidth === '0' ? '220px' : '0'));
+    };
+
+    const handleResize = () => {
+        if (window.innerWidth > 1040) {
+            setSidenavWidth('0');
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <>
             <div className={"header"}>
@@ -12,6 +35,20 @@ function HeaderUser() {
                     <Link to={"/categories"}><p className={"header-button"}>Plants</p></Link>
                     <img className={"cart-btn"} src={"src/assets/home/cart.png"}/>
                     <Link to={"/login"}><button className={"login-button"}>Login</button></Link>
+                </div>
+
+                <div className="header-sidenav" style={{ width: sidenavWidth }}>
+                    <div className={"header-sideNav-btn-container"}>
+                        <Link to="/"><button className={"header-sideNav-btn"}>Home</button></Link>
+                        <Link to={"/categories"}><button className={"header-sideNav-btn"}>Products</button></Link>
+                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
+                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Log out</button></Link>
+
+                    </div>
+                </div>
+
+                <div className="header-openSideNav-btn-div" onClick={toggleNav}>
+                    <button className="header-openSideNav-btn"><FontAwesomeIcon icon={faBars} /></button>
                 </div>
             </div>
         </>

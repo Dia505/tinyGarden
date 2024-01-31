@@ -37,7 +37,7 @@ function HeaderAdmin() {
                     <Link to={"/adminCustomer"}><p className={"customer-btn-admin"}>Customers</p></Link>
 
                     <div className={"product-admin-container"}>
-                        <p className={"product-btn-admin"}>Products
+                        <p className={"product-btn-admin"}>Products <FontAwesomeIcon icon={faCaretDown} />
                             <div className={"product-drop-down-admin"}>
                                 <Link to={"/adminFoliage"}><button className={"drop-down-btn"}>Foliage</button></Link>
                                 <Link to={"/adminSucculent"}><button className={"drop-down-btn"}>Succulents</button></Link>

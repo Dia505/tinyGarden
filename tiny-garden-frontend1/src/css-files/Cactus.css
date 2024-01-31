@@ -1,67 +1,67 @@
-.top-section-foliage {
+.top-section-cactus {
     margin-top: 70px;
     margin-left: 50px;
 }
-.title-foliage {
+.title-cactus {
     font-family: "Henny Penny";
     color: #463F3A;
     font-size: 32px;
 }
 
-.foliage-grid {
+.cactus-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 3vw;
     row-gap: 3vh;
 }
-.foliage-container {
+.cactus-container {
     display: flex;
     flex-direction: column;
     align-items: start;
 }
-.foliage-container p {
+.cactus-container p {
     color: #463F3A;
 }
-.foliage-name {
+.cactus-name {
     font-size: 18px;
 }
-.foliage-price {
+.cactus-price {
     margin-top: -10px;
 }
-.foliage-img {
+.cactus-img {
     height: 43vh;
     width: 18vw;
 }
-.foliage-img:hover {
+.cactus-img:hover {
     cursor: pointer;
 }
 
 @media screen and (max-width: 1250px) {
-    .foliage-img {
+    .cactus-img {
         height: 35vh;
     }
 }
 
 @media screen and (max-width: 1050px) {
-    .foliage-img {
+    .cactus-img {
         height: 30vh;
     }
 }
 
 @media screen and (max-width: 920px) {
-    .foliage-img {
+    .cactus-img {
         height: 25vh;
     }
 }
 
 @media screen and (max-width: 820px) {
-    .title-foliage {
+    .title-cactus {
         font-size: 28px;
     }
-    .foliage-grid {
+    .cactus-grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    .foliage-img {
+    .cactus-img {
         height: 35vh;
         width: 27vw;
     }
@@ -69,16 +69,16 @@
 }
 
 @media screen and (max-width: 600px) {
-    .foliage-img {
+    .cactus-img {
         height: 30vh;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .foliage-grid {
+    .cactus-grid {
         grid-template-columns: 1fr 1fr;
     }
-    .foliage-img {
+    .cactus-img {
         height: 30vh;
         width: 36vw;
     }

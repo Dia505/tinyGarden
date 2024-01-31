@@ -19,6 +19,10 @@ import ProductAnalytics from "./pages/ProductAnalytics.tsx";
 import AdminCactus from "./pages/AdminCactus.tsx";
 import AdminFlower from "./pages/AdminFlower.tsx";
 import AdminHerb from "./pages/AdminHerb.tsx";
+import Succulent from "./pages/Succulent.tsx";
+import Cactus from "./pages/Cactus.tsx";
+import Flower from "./pages/Flower.tsx";
+import Herb from "./pages/Herb.tsx";
 
 const router = createBrowserRouter(
     [
@@ -89,6 +93,22 @@ const router = createBrowserRouter(
         {
             path: "/adminHerb",
             element: <AdminHerb/>
+        },
+        {
+            path: "/succulent",
+            element: <Succulent/>
+        },
+        {
+            path: "/cactus",
+            element: <Cactus/>
+        },
+        {
+            path: "/flower",
+            element: <Flower/>
+        },
+        {
+            path: "/herb",
+            element: <Herb/>
         }
     ]
 )

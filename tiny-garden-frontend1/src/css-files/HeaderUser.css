@@ -47,3 +47,64 @@
     height: 35px;
     padding-top: 4px;
 }
+
+.header-sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 70;
+    top: 10vh;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: #E6B4C1;
+}
+
+.header-sideNav-btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-openSideNav-btn-div {
+    margin-top: 10px;
+}
+.header-openSideNav-btn {
+    background-color: #D6DBB6;
+    color: #463F3A;
+    font-size: 26px;
+    margin-top: 10px;
+}
+.header-openSideNav-btn:hover {
+    border: none;
+}
+.header-sideNav-btn, .adminHeader-sideNav-productBtn {
+    width: 100%;
+    height: 60px;
+    background-color: #E6B4C1;
+    color: #463F3A;
+}
+.header-sideNav-btn:hover {
+    border: solid #463F3A 2px;
+}
+
+.header-sideNav-btn button {
+    background-color: #463F3A;
+    color: white;
+}
+
+@media screen and (min-width: 1041px) {
+    .header-sidenav {
+        display: none;
+    }
+    .header-click {
+        display: none;
+    }
+    .header-openSideNav-btn-div {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1041px) {
+    .header-button-container {
+        display: none;
+    }
+}
