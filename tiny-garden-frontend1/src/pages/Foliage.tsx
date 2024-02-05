@@ -2,8 +2,10 @@ import "../css-files/Foliage.css"
 import HeaderUser from "./HeaderUser.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 function Foliage() {
     const [foliagePlants, setFoliagePlants] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchFoliagePlants = async () => {
@@ -34,6 +36,9 @@ function Foliage() {
                         <img
                             className={"foliage-img"}
                             src={`/${plant.image}`}
+                            onClick={() => {
+                                navigate("/productView/" + plant.plantId)
+                            }}
                         />
                         <p className={"foliage-name"}>{plant.plantName}</p>
                         <p className={"foliage-price"}>Rs. {plant.price}</p>

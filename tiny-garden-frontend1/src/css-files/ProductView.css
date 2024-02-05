@@ -1,0 +1,27 @@
+.centre-pView {
+    display: flex;
+    margin-top: 100px;
+    gap: 100px;
+}
+.right-section-pView, .name-price-container-pView, .description-container-pView {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.right-section-pView {
+    margin-top: -10px;
+}
+.name-pView {
+    font-size: 38px;
+}
+.price-description-pView {
+    font-size: 30px;
+}
+.description-container-pView li {
+    color: #463F3A;
+    font-size: 20px;
+}
+.divider-pView {
+    border: solid #463F3A 1px;
+    width: 50vw;
+}

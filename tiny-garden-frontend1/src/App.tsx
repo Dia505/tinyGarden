@@ -23,6 +23,7 @@ import Succulent from "./pages/Succulent.tsx";
 import Cactus from "./pages/Cactus.tsx";
 import Flower from "./pages/Flower.tsx";
 import Herb from "./pages/Herb.tsx";
+import ProductView from "./pages/ProductView.tsx";
 
 const router = createBrowserRouter(
     [
@@ -109,6 +110,10 @@ const router = createBrowserRouter(
         {
             path: "/herb",
             element: <Herb/>
+        },
+        {
+            path: "/productView/:pk_id",
+            element: <ProductView/>
         }
     ]
 )
