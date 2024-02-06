@@ -1,5 +1,6 @@
 package com.example.tinygarden.service.impl;
 
+import com.example.tinygarden.config.PasswordEncoderUtil;
 import com.example.tinygarden.dto.CustomerDto;
 import com.example.tinygarden.entity.Customer;
 import com.example.tinygarden.repository.CustomerRepository;
@@ -28,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setAddress(customerDto.getAddress());
         customer.setMobileNo(customerDto.getMobileNo());
         customer.setEmail(customerDto.getEmail());
-        customer.setPassword(customerDto.getPassword());
+        customer.setPassword(PasswordEncoderUtil.getInstance().encode(customerDto.getPassword()));
 
         customerRepository.save(customer);
 
