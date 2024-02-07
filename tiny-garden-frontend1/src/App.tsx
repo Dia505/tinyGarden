@@ -1,6 +1,5 @@
 import './App.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-// import React from "react";
 import Home from "./pages/Home.tsx";
 import Register from "./pages/Register.tsx";
 import {QueryClient, QueryClientProvider} from "react-query";
@@ -24,16 +23,15 @@ import Cactus from "./pages/Cactus.tsx";
 import Flower from "./pages/Flower.tsx";
 import Herb from "./pages/Herb.tsx";
 import ProductView from "./pages/ProductView.tsx";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import HeaderUserBeforeLogin from "./pages/HeaderUserBeforeLogin.tsx";
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
             element: <Home/>
-        },
-        {
-            path: "/headerUser",
-            element: <HeaderUser/>
         },
         {
             path: "/registration",
@@ -124,6 +122,9 @@ function App() {
 
     return (
         <>
+            <ToastContainer
+            position={"top-center"}/>
+
             <QueryClientProvider client={queryClient}>
                 <RouterProvider router={router}/>
             </QueryClientProvider>

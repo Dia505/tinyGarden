@@ -3,6 +3,8 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HeaderUser from "./HeaderUser.tsx";
+import React from "react";
+import HeaderUserBeforeLogin from "./HeaderUserBeforeLogin.tsx";
 
 function Home() {
     const bestSellerPlants = [
@@ -52,7 +54,7 @@ function Home() {
 
     return (
         <>
-            <HeaderUser/>
+            {localStorage.getItem("loggedInUserId")? <HeaderUser/>:<HeaderUserBeforeLogin/>}
 
             <div className={"centre-home"}>
                 <div className={"home-heading-container"}>

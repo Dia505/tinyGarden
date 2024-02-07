@@ -32,26 +32,9 @@
     cursor: pointer;
     text-decoration: underline;
 }
-.cart-btn, .profile-btn {
+.cart-btn {
     height: 40px;
     cursor: pointer;
-}
-.profile-logout-container:hover .logout-button {
-    display: block;
-}
-.profile-logout-container {
-    position: relative;
-}
-.logout-button {
-    display: none;
-    position: absolute;
-    background-color: #463F3A;
-    border-radius: 5px;
-    height: 30px;
-    line-height: 2px;
-
-    right: -25px;
-    top: 45px;
 }
 .login-button {
     background-color: #D6DBB6;

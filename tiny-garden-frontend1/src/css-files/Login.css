@@ -1,20 +1,33 @@
 .page-container-login {
     display: flex;
+    gap: 100px;
+    align-items: end;
 }
 .left-section-login {
-    display: flex;
     margin-right: 100px;
-    margin-top: 100px;
+    margin-top: 30px;
 }
-.tiny-garden-login {
+
+.tiny-garden-login-responsive, .login-img-responsive {
     display: none;
 }
+
+.tiny-garden-login {
+    width: 100px;
+    position: fixed;
+    color: white;
+    font-family: "Henny Penny";
+    font-size: 60px;
+    margin-top: 300px;
+    margin-left: 30px;
+}
 .login-img {
-    height: 500px;
+    height: 700px;
+    border-radius: 80px 80px 0 0;
 }
 .right-section-login {
     background-color: #A4BE8B;
-    width: 750px;
+    width: 500px;
     height: 700px;
     border-radius: 20px;
     margin-top: 30px;
@@ -44,6 +57,10 @@
     align-items: start;
     margin-left: 40px;
 }
+.user-input-login {
+    display: flex;
+    flex-direction: column;
+}
 .user-input-login input {
     background-color: white;
     border-color: #463F3A;
@@ -53,57 +70,18 @@
     width: 300px;
     padding-left: 10px;
     color: black;
+    margin-left: 40px;
 }
 .text-email-login, .text-password-login {
     margin-top: 20px;
 }
-.remember-forgot-login-container {
-    display: flex;
-    align-items: center;
-    margin-left: 37px;
-    margin-top: 50px;
-    justify-content: space-between;
-}
-.remember-me-container-login {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    height: 30px;
-    width: 30px;
-    border: 2px solid #463F3A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-input[type="checkbox"]::after {
-    content: "\f00c";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    font-size: 20px;
-    color: black;
-    margin-left: -13px;
-    display: none;
-}
-input[type="checkbox"]:checked:after {
-    display: block;
-}
-.remember-login {
-    color: #463F3A;
-}
-.remember-login, .forgot-password-login {
+.forgot-password-login {
     font-family: "Nunito";
     font-weight: 600;
-}
-.forgot-password-login {
-    margin-right: 100px;
+    margin-left: 230px;
+    cursor: pointer;
 }
 .forgot-password-login:hover {
-    cursor: pointer;
     text-decoration: underline;
 }
 .login-button-container {
@@ -117,18 +95,40 @@ input[type="checkbox"]:checked:after {
     width: 170px;
 }
 
+.login-email-container, .login-password-container {
+    display: flex;
+    flex-direction: column;
+}
+.error-email, .error-password {
+    color: purple;
+    font-size: 12px;
+    width: 100%;
+}
+.error-email {
+    margin-left: -140px;
+}
+.error-password {
+    margin-left: -100px;
+}
+
 @media screen and (max-width: 1350px) {
     .page-container-login {
         flex-direction: column;
+        align-items: center;
     }
     .left-section-login {
+        display: flex;
         margin-top: -10px;
         margin-left: 100px;
     }
-    .login-img {
+    .login-img, .tiny-garden-login {
+        display: none;
+    }
+    .login-img-responsive {
+        display: block;
         height: 100px;
     }
-    .tiny-garden-login {
+    .tiny-garden-login-responsive {
         display: block;
         font-family: "Henny Penny";
         color: #463F3A;
@@ -137,6 +137,7 @@ input[type="checkbox"]:checked:after {
     .right-section-login {
         height: 600px;
         width: 500px;
+        margin-top: -70px;
     }
     .page-heading-login {
         margin-top: 40px;
@@ -151,17 +152,23 @@ input[type="checkbox"]:checked:after {
 
 @media screen and (max-width: 850px) and (min-width: 400px) {
     .left-section-login {
-        margin-top: 0px;
         align-items: center;
     }
     .right-section-login {
+        height: 550px;
         width: 400px;
-        margin-top: 0px;
-    }
-    .remember-forgot-login-container {
-        gap: 20px;
+        margin-top: -100px;
     }
     .forgot-password-login {
-        margin-left: 50px;
+        margin-left: 180px;
+    }
+    .error-email {
+        margin-left: -90px;
+    }
+    .error-password {
+        margin-left: -50px;
+    }
+    .login-button-container {
+        margin-top: 20px;
     }
 }

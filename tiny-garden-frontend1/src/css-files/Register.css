@@ -1,20 +1,34 @@
 .page-container-reg {
     display: flex;
+    gap: 100px;
+    align-items: end;
 }
 .left-section-reg {
-    display: flex;
     margin-right: 100px;
-    margin-top: 100px;
+    margin-top: 30px;
 }
-.tiny-garden-reg {
+
+.tiny-garden-reg-responsive, .register-img-responsive {
     display: none;
 }
+
+.tiny-garden-reg {
+    width: 100px;
+    position: fixed;
+    color: white;
+    font-family: "Henny Penny";
+    font-size: 60px;
+    margin-top: 300px;
+    margin-left: 87px;
+}
 .register-img {
-    height: 500px;
+    height: 700px;
+    border-radius: 80px 80px 0 0;
+    margin-left: 57px;
 }
 .right-section-reg {
     background-color: #A4BE8B;
-    width: 750px;
+    width: 600px;
     height: 700px;
     border-radius: 20px;
     margin-top: 30px;
@@ -55,7 +69,7 @@ input {
     color: black;
 }
 .text-address-reg, .text-number-reg, .text-email-reg, .password-fields-reg {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 .password-fields-reg {
     display: flex;
@@ -89,15 +103,21 @@ input {
 @media screen and (max-width: 1350px) {
     .page-container-reg {
         flex-direction: column;
+        align-items: center;
     }
     .left-section-reg {
+        display: flex;
         margin-top: -10px;
         margin-left: 100px;
     }
-    .register-img {
+    .register-img, .tiny-garden-reg {
+        display: none;
+    }
+    .register-img-responsive {
+        display: block;
         height: 100px;
     }
-    .tiny-garden-reg {
+    .tiny-garden-reg-responsive {
         display: block;
         font-family: "Henny Penny";
         color: #463F3A;
@@ -106,9 +126,10 @@ input {
     .right-section-reg {
         height: 600px;
         width: 500px;
+        margin-top: -70px;
     }
     .page-heading-reg {
-        margin-top: 40px;
+        margin-top: 10px;
     }
     .title-reg {
         font-size: 20px;
@@ -132,11 +153,14 @@ input {
 
 @media screen and (max-width: 850px) and (min-width: 400px) {
     .left-section-reg {
-        margin-top: 0px;
         align-items: center;
     }
     .right-section-reg {
+        height: 550px;
         width: 400px;
+        margin-top: -100px;
+    }
+    .page-heading-reg {
         margin-top: 0px;
     }
     input {
