@@ -1,6 +1,7 @@
 package com.example.tinygarden.service.impl;
 
 import com.example.tinygarden.dto.LoginDto;
+import com.example.tinygarden.entity.Customer;
 import com.example.tinygarden.repository.CustomerRepository;
 import com.example.tinygarden.response.LoginResponse;
 import com.example.tinygarden.security.JwtService;
@@ -31,11 +32,16 @@ public class LoginServiceImpl implements LoginService {
                     )
             );
 
-            UserDetails userDetails = (UserDetails) customerRepository.getUserByEmail(loginDto.getEmail())
+            Customer customer=  customerRepository.getUserByEmail(loginDto.getEmail())
                     .orElseThrow(() -> new EntityNotFoundException("User not found."));
 
+            UserDetails userDetails = customer;
+
             String jwtToken = jwtService.generateToken(userDetails);
-            return ResponseEntity.ok(LoginResponse.builder().token(jwtToken).build());
+            return ResponseEntity.ok(LoginResponse.builder().token(jwtToken)
+                    .customerId(customer.getCustomerId())
+                            .role(customer.getCustomerId()==0?"admin":"customer")
+                    .build());
         }
         catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)

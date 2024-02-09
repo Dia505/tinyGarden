@@ -5,7 +5,6 @@ import axios from "axios";
 import {toast} from "react-toastify";
 
 function Login() {
-    const[rememberMe, setRememberMe] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
@@ -26,14 +25,21 @@ function Login() {
             });
 
             console.log('Response:', response.data);
-            const { token, id, status } = response.data;
+            const { token, customerId,role } = response.data;
 
             if (token) {
-                console.log('Login successful!');
+
                 toast.success('You have logged in!');
-                navigate('/');
-                localStorage.setItem('loggedInUserId', id);
-                console.log("Logged in user: ",id)
+                localStorage.setItem('loggedInUserId', customerId);
+                console.log("Logged in user: ",customerId)
+
+                if(role==="admin"){
+                    window.location.href="/adminCustomer"
+                    localStorage.setItem("adminToken", token);
+                }else{
+                    window.location.href="/"
+
+                }
             }
             else {
                 console.log('Login failed');

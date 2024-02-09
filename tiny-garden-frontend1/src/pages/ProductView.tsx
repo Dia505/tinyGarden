@@ -3,6 +3,9 @@ import HeaderUser from "./HeaderUser.tsx";
 import {useParams} from "react-router-dom";
 import {useQuery} from "react-query";
 import axios from "axios";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleMinus} from "@fortawesome/free-solid-svg-icons";
+import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 function ProductView() {
     const {pk_id} = useParams();
 
@@ -21,26 +24,38 @@ function ProductView() {
 
             <div className={"centre-pView"}>
                 <div className={"left-section-pView"}>
-                    <img className={"img-pView"} src={dataById?.data?.image}/>
+                    <img className={"img-pView"} src={"/"+dataById?.data?.image}/>
                 </div>
 
-                <div className={"right-section-pView"}>
-                    <div className={"name-price-container-pView"}>
-                        <p className={"name-pView"}>{dataById?.data?.plantName}</p>
-                        <p className={"price-description-pView"}>Rs. {dataById?.data?.price}</p>
-                    </div>
+                <form>
+                    <div className={"right-section-pView"}>
+                        <div className={"name-price-container-pView"}>
+                            <p className={"name-pView"}>{dataById?.data?.plantName}</p>
+                            <p className={"price-description-pView"}>Rs. {dataById?.data?.price}</p>
+                        </div>
 
-                    <hr className={"divider-pView"}></hr>
+                        <hr className={"divider-pView"}></hr>
 
-                    <div className={"description-container-pView"}>
-                        <p className={"price-description-pView"}>Description</p>
-                        <li>Scientific Name: {dataById?.data?.sciName}</li>
-                        <li>Requires {dataById?.data?.lightReq} light</li>
-                        <li>Requires {dataById?.data?.waterReq} water</li>
-                        <li>Pet friendly: {dataById?.data?.petFriendly}</li>
-                        <li>{dataById?.data?.addFeature}</li>
+                        <div className={"description-container-pView"}>
+                            <p className={"price-description-pView"}>Description</p>
+                            <li>Scientific Name: {dataById?.data?.sciName}</li>
+                            <li>Requires {dataById?.data?.lightReq} light</li>
+                            <li>Requires {dataById?.data?.waterReq} water</li>
+                            <li>Pet friendly: {dataById?.data?.petFriendly}</li>
+                            <li>{dataById?.data?.addFeature}</li>
+                        </div>
+
+                        <div className={"order-btn-container-pView"}>
+                            <button className={"add-to-cart-btn-pView"}>Add To Cart</button>
+
+                            <div className={"order-number-container-pView"}>
+                                <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCircleMinus} />
+                                <p className={"order-number-pView"}>1</p>
+                                <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCirclePlus} />
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </>
     )

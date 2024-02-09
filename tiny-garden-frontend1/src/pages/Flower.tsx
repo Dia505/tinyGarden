@@ -2,8 +2,10 @@ import "../css-files/Flower.css"
 import HeaderUser from "./HeaderUser.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 function Flower() {
     const [floweringPlants, setFloweringPlants] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchFloweringPlants = async () => {
@@ -34,6 +36,9 @@ function Flower() {
                         <img
                             className={"flower-img"}
                             src={`/${plant.image}`}
+                            onClick={() => {
+                                navigate("/productView/" + plant.plantId)
+                            }}
                         />
                         <p className={"flower-name"}>{plant.plantName}</p>
                         <p className={"flower-price"}>Rs. {plant.price}</p>

@@ -18,7 +18,9 @@ function AdminCustomer() {
     const {data: allCustomerData} = useQuery({
         queryKey: "GETDATA",
         queryFn() {
-            return axios.get("http://localhost:8080/customer/get-all-data")
+            return axios.get("http://localhost:8080/customer/get-all-data",{
+                headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+            })
         }
     })
 
@@ -27,7 +29,9 @@ function AdminCustomer() {
         async () => {
             if (customerId.trim() !== "") {
                 const response = await axios.get(
-                    `http://localhost:8080/customer/get-by-id/${customerId}`
+                    `http://localhost:8080/customer/get-by-id/${customerId}`, {
+                        headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+                    }
                 );
                 return response.data;
             }
@@ -45,7 +49,9 @@ function AdminCustomer() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const customerResponse = await axios.get('http://localhost:8080/customer/customer-record');
+                const customerResponse = await axios.get('http://localhost:8080/customer/customer-record', {
+                    headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+                });
                 setCustomerRecords(customerResponse.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

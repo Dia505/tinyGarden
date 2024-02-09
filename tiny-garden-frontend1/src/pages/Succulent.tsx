@@ -2,8 +2,10 @@ import "../css-files/Succulent.css"
 import HeaderUser from "./HeaderUser.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 function Succulent() {
     const [succulentPlants, setSucculentPlants] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchSucculentPlants = async () => {
@@ -34,6 +36,9 @@ function Succulent() {
                         <img
                             className={"succulent-img"}
                             src={`/${plant.image}`}
+                            onClick={() => {
+                                navigate("/productView/" + plant.plantId)
+                            }}
                         />
                         <p className={"succulent-name"}>{plant.plantName}</p>
                         <p className={"succulent-price"}>Rs. {plant.price}</p>

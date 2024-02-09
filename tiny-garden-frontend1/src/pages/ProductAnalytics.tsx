@@ -18,7 +18,9 @@ function ProductAnalytics() {
     const {data: allPlantData} = useQuery({
         queryKey: "GETDATA",
         queryFn() {
-            return axios.get("http://localhost:8080/plant/get-all-data")
+            return axios.get("http://localhost:8080/plant/get-all-data", {
+                headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+            })
         }
     })
 
@@ -27,7 +29,9 @@ function ProductAnalytics() {
         async () => {
             if (plantId.trim() !== "") {
                 const response = await axios.get(
-                    `http://localhost:8080/plant/get-by-id/${plantId}`
+                    `http://localhost:8080/plant/get-by-id/${plantId}`, {
+                        headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+                    }
                 );
                 return response.data;
             }
@@ -45,7 +49,9 @@ function ProductAnalytics() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const plantResponse = await axios.get('http://localhost:8080/plant/plant-record');
+                const plantResponse = await axios.get('http://localhost:8080/plant/plant-record', {
+                    headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+                });
                 setPlantRecords(plantResponse.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

@@ -2,8 +2,10 @@ import "../css-files/Herb.css"
 import HeaderUser from "./HeaderUser.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 function Herb() {
     const [herbPlants, setHerbPlants] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchHerbPlants = async () => {
@@ -34,6 +36,9 @@ function Herb() {
                         <img
                             className={"herb-img"}
                             src={`/${plant.image}`}
+                            onClick={() => {
+                                navigate("/productView/" + plant.plantId)
+                            }}
                         />
                         <p className={"herb-name"}>{plant.plantName}</p>
                         <p className={"herb-price"}>Rs. {plant.price}</p>
