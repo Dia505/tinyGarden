@@ -6,6 +6,7 @@ import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleMinus} from "@fortawesome/free-solid-svg-icons";
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
+import {useState} from "react";
 function ProductView() {
     const {pk_id} = useParams();
 
@@ -18,6 +19,32 @@ function ProductView() {
         }, enabled: !!pk_id,
     });
 
+    const [quantity, setQuantity] = useState(1);
+
+    const handleIncrement = () => {
+        setQuantity((prevQuantity) => prevQuantity + 1);
+    };
+
+    const handleDecrement = () => {
+        if (quantity > 1) {
+            setQuantity((prevQuantity) => prevQuantity - 1);
+        }
+    };
+
+    const handleAddToCart = () => {
+        const selectedPlant = {
+            id: pk_id,
+            name: dataById?.data?.plantName,
+            price: dataById?.data?.price,
+            quantity: quantity,
+            image: dataById?.data?.image,
+        };
+
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push(selectedPlant);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    };
+
     return (
         <>
             <HeaderUser/>
@@ -27,35 +54,33 @@ function ProductView() {
                     <img className={"img-pView"} src={"/"+dataById?.data?.image}/>
                 </div>
 
-                <form>
-                    <div className={"right-section-pView"}>
-                        <div className={"name-price-container-pView"}>
-                            <p className={"name-pView"}>{dataById?.data?.plantName}</p>
-                            <p className={"price-description-pView"}>Rs. {dataById?.data?.price}</p>
-                        </div>
+                <div className={"right-section-pView"}>
+                    <div className={"name-price-container-pView"}>
+                        <p className={"name-pView"}>{dataById?.data?.plantName}</p>
+                        <p className={"price-description-pView"}>Rs. {dataById?.data?.price}</p>
+                    </div>
 
-                        <hr className={"divider-pView"}></hr>
+                    <hr className={"divider-pView"}></hr>
 
-                        <div className={"description-container-pView"}>
-                            <p className={"price-description-pView"}>Description</p>
-                            <li>Scientific Name: {dataById?.data?.sciName}</li>
-                            <li>Requires {dataById?.data?.lightReq} light</li>
-                            <li>Requires {dataById?.data?.waterReq} water</li>
-                            <li>Pet friendly: {dataById?.data?.petFriendly}</li>
-                            <li>{dataById?.data?.addFeature}</li>
-                        </div>
+                    <div className={"description-container-pView"}>
+                        <p className={"price-description-pView"}>Description</p>
+                        <li>Scientific Name: {dataById?.data?.sciName}</li>
+                        <li>Requires {dataById?.data?.lightReq} light</li>
+                        <li>Requires {dataById?.data?.waterReq} water</li>
+                        <li>Pet friendly: {dataById?.data?.petFriendly}</li>
+                        <li>{dataById?.data?.addFeature}</li>
+                    </div>
 
-                        <div className={"order-btn-container-pView"}>
-                            <button className={"add-to-cart-btn-pView"}>Add To Cart</button>
+                    <div className={"order-btn-container-pView"}>
+                        <button className={"add-to-cart-btn-pView"} onClick={handleAddToCart}>Add To Cart</button>
 
-                            <div className={"order-number-container-pView"}>
-                                <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCircleMinus} />
-                                <p className={"order-number-pView"}>1</p>
-                                <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCirclePlus} />
-                            </div>
+                        <div className={"order-number-container-pView"}>
+                            <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCircleMinus} onClick={handleDecrement}/>
+                            <p className={"order-number-pView"}>{quantity}</p>
+                            <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCirclePlus} onClick={handleIncrement}/>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </>
     )

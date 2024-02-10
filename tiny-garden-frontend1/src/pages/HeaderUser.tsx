@@ -40,11 +40,11 @@ function HeaderUser() {
                 <div className={"header-button-container"}>
                     <Link to={"/"}><p className={"header-button"}>Home</p></Link>
                     <Link to={"/categories"}><p className={"header-button"}>Plants</p></Link>
-                    <img className={"cart-btn"} src={window.location.origin +"/src/assets/home/cart.png"}/>
+                    <Link to={"/order"}><img className={"cart-btn"} src={window.location.origin +"/src/assets/home/cart.png"}/></Link>
 
                     <div className={"profile-logout-container"}>
                         <img className={"profile-btn"} src={window.location.origin +"/src/assets/home/profile.png"}/>
-                        <Link to={"/login"}><button className={"logout-button"}>Logout</button></Link>
+                        <button className={"logout-button"} onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
 
@@ -52,9 +52,9 @@ function HeaderUser() {
                     <div className={"header-sideNav-btn-container"}>
                         <Link to="/"><button className={"header-sideNav-btn"}>Home</button></Link>
                         <Link to={"/categories"}><button className={"header-sideNav-btn"}>Products</button></Link>
-                        <Link to="/cart "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
+                        <Link to="/order "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
                         <Link to="/profile "><button className={"adminHeader-sideNav-btn"}>Profile</button></Link>
-                        <Link to="/login "><button onClick={handleLogout} className={"adminHeader-sideNav-btn"}>Log out</button></Link>
+                        <button onClick={handleLogout} className={"adminHeader-sideNav-btn"}>Log out</button>
 
                     </div>
                 </div>

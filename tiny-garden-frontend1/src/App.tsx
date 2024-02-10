@@ -5,11 +5,9 @@ import Register from "./pages/Register.tsx";
 import {QueryClient, QueryClientProvider} from "react-query";
 import AdminCustomer from "./pages/AdminCustomer.tsx";
 import DemoAdminCustomer from "./pages/DemoAdminCustomer.tsx";
-import HeaderUser from "./pages/HeaderUser.tsx";
 import Login from "./pages/Login.tsx";
 import Categories from "./pages/Categories.tsx";
 import AdminFoliage from "./pages/AdminFoliage.tsx";
-import HeaderAdmin from "./pages/HeaderAdmin.tsx";
 import AddProductForm from "./pages/AddProductForm.tsx";
 import EditProductForm from "./pages/EditProductForm.tsx";
 import Foliage from "./pages/Foliage.tsx";
@@ -25,7 +23,7 @@ import Herb from "./pages/Herb.tsx";
 import ProductView from "./pages/ProductView.tsx";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HeaderUserBeforeLogin from "./pages/HeaderUserBeforeLogin.tsx";
+import Order from "./pages/Order.tsx";
 
 const router = createBrowserRouter(
     [
@@ -56,10 +54,6 @@ const router = createBrowserRouter(
         {
             path: "/adminFoliage",
             element: <AdminFoliage/>
-        },
-        {
-            path: "/headerAdmin",
-            element: <HeaderAdmin/>
         },
         {
             path: "/addProductForm",
@@ -112,6 +106,10 @@ const router = createBrowserRouter(
         {
             path: "/productView/:pk_id",
             element: <ProductView/>
+        },
+        {
+            path: "/order",
+            element: <Order/>
         }
     ]
 )

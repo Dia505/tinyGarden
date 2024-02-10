@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import {toast} from "react-toastify";
 function HeaderAdmin() {
     const [sidenavWidth, setSidenavWidth] = useState<string>('0');
     const navigate = useNavigate();
@@ -25,6 +26,12 @@ function HeaderAdmin() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInUserId');
+        toast.success('You have logged out!');
+        navigate('/login');
+    }
 
     return (
         <>
@@ -50,7 +57,7 @@ function HeaderAdmin() {
                     </div>
 
                     <p className={"order-btn-admin"}>Orders</p>
-                    <button className={"logout-btn-admin"}>Log out</button>
+                    <button className={"logout-btn-admin"} onClick={handleLogout}>Log out</button>
                 </div>
 
                 <div className="adminHeader-sidenav" style={{ width: sidenavWidth }}>
@@ -70,7 +77,7 @@ function HeaderAdmin() {
                         )}
 
                         <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
-                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Log out</button></Link>
+                        <button className={"adminHeader-sideNav-btn"} onClick={handleLogout}>Log out</button>
 
                     </div>
                 </div>

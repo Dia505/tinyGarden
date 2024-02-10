@@ -1,10 +1,11 @@
 import "../css-files/Categories.css"
 import HeaderUser from "./HeaderUser.tsx";
 import {Link} from "react-router-dom";
+import HeaderUserBeforeLogin from "./HeaderUserBeforeLogin.tsx";
 function Categories() {
     return (
         <>
-            <HeaderUser/>
+            {localStorage.getItem("loggedInUserId")? <HeaderUser/>:<HeaderUserBeforeLogin/>}
 
             <div className={"centre-category"}>
                 <div className={"category-title-container"}>

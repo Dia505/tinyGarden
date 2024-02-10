@@ -30,11 +30,11 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(()->new NoSuchElementException("No data found"));
         order.setCustomer(customer);
 
+        order.setDate(orderDto.getDate());
+
         Plant plant = plantRepository.findById(orderDto.getPlantId())
                 .orElseThrow(()->new NoSuchElementException("No data found"));
         order.setPlant(plant);
-
-        order.setDate(orderDto.getDate());
         order.setQuantity(orderDto.getQuantity());
 
         Double totalPrice = orderDto.getQuantity() * plant.getPrice();

@@ -5,7 +5,7 @@
 }
 .img-pView {
     width: 30vw;
-    height: 72vh;
+    height: 42vw;
 }
 .right-section-pView, .name-price-container-pView, .description-container-pView {
     display: flex;
@@ -56,4 +56,66 @@
 }
 .order-number-pView {
     font-size: 18px;
+}
+
+@media screen and (max-width: 1041px) {
+    .centre-pView {
+        gap: 40px;
+    }
+    .img-pView {
+        width: 45vw;
+        height: 62vh;
+    }
+    .divider-pView {
+        width: 85vw;
+        margin-top: 370px;
+        margin-left: -50vw;
+    }
+    .description-container-pView {
+        margin-top: -20px;
+        margin-left: -48vw;
+    }
+    .order-btn-container-pView {
+        margin-left: -48vw;
+        margin-top: 40px;
+        gap: 40px;
+    }
+    .add-to-cart-btn-pView {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .img-pView {
+        width: 75vw;
+        height: 62vh;
+        margin-left: 20px;
+    }
+    .name-price-container-pView, .description-container-pView {
+        margin-left: -82vw;
+    }
+    .name-price-container-pView {
+        margin-top: 510px;
+    }
+    .name-pView {
+        font-size: 30px;
+        margin-bottom: -20px;
+    }
+    .price-description-pView {
+        font-size: 24px;
+    }
+    .divider-pView {
+        width: 85vw;
+        margin-top: -10px;
+        margin-left: -88vw;
+    }
+    .description-container-pView {
+        margin-top: -20px;
+    }
+    .description-container-pView li {
+        font-size: 18px;
+    }
+    .order-btn-container-pView {
+        margin-left: -84vw;
+    }
 }

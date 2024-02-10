@@ -36,6 +36,25 @@
     cursor: pointer;
 }
 
+.other-categories-text-foliage {
+    font-family: "Henny Penny";
+    color: #463F3A;
+    font-size: 28px;
+}
+.category-main-container-foliage {
+    display: flex;
+    gap: 40px;
+}
+.category-img-foliage {
+    height: 24vw;
+    cursor: pointer;
+}
+.category-text-foliage {
+    font-family: "Henny Penny";
+    color: #463F3A;
+    font-size: 22px;
+}
+
 @media screen and (max-width: 1250px) {
     .foliage-img {
         height: 35vh;
@@ -65,7 +84,24 @@
         height: 35vh;
         width: 27vw;
     }
+    .category-main-container-foliage {
+        flex-wrap: wrap;
+    }
+    .category-img-foliage {
+        height: 32vw;
+    }
+}
 
+@media screen and (max-width: 800px) {
+    .category-main-container-foliage {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3vw;
+        row-gap: 3vh;
+    }
+    .category-img-foliage {
+        height: 49vw;
+    }
 }
 
 @media screen and (max-width: 600px) {
