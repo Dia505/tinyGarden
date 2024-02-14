@@ -20,15 +20,8 @@ public class Order {
     @JoinColumn(name = "customerId")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "plantId")
-    private Plant plant;
-
     @Column(name = "date", nullable = false)
     private Date date;
-
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
 
     @Column(name = "totalPrice", nullable = false)
     private Double totalPrice;

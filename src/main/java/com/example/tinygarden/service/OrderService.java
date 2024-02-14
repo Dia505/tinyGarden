@@ -4,11 +4,12 @@ import com.example.tinygarden.dto.OrderDto;
 import com.example.tinygarden.entity.Order;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface OrderService {
     String save(OrderDto orderDto);
-    List<Order> getAll();
-    Optional<Order> getById(Integer orderId);
+    OrderDto convertToDto(Order order);
+    List<OrderDto> getAll();
+    List<OrderDto> getById(Integer orderId);
+    List<OrderDto> getByCustomerId(Integer customerId);
     String deleteById(Integer orderId);
 }

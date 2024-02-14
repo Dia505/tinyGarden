@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,11 +18,8 @@ public class OrderDto {
     @NotNull
     private Integer customerId;
     @NotNull
-    private Integer plantId;
-    @NotNull
     private Date date;
     @NotNull
-    private Integer quantity;
-    @NotNull
     private Double totalPrice;
+    private List<OrderItemDto> orderItems;
 }

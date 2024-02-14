@@ -1,14 +1,11 @@
 package com.example.tinygarden.controller;
 
 import com.example.tinygarden.dto.OrderDto;
-import com.example.tinygarden.entity.Order;
 import com.example.tinygarden.service.OrderService;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/order")
@@ -23,13 +20,18 @@ public class OrderController {
     }
 
     @GetMapping("/get-all-order")
-    public List<Order> getAllData() {
+    public List<OrderDto> getAllData() {
         return orderService.getAll();
     }
 
     @GetMapping("/get-by-id/{orderId}")
-    public Optional<Order> getById(@PathVariable("orderId") Integer orderId) {
+    public List<OrderDto> getById(@PathVariable("orderId") Integer orderId) {
         return orderService.getById(orderId);
+    }
+
+    @GetMapping("/retrieve-order-by-customerId/{customerId}")
+    public List<OrderDto> getByCustomerId(@PathVariable("customerId") Integer customerId) {
+        return orderService.getByCustomerId(customerId);
     }
 
     @DeleteMapping("/delete-by-id/{orderId}")
