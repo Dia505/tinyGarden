@@ -40,7 +40,6 @@ function Login() {
                 else{
                     window.location.href="/"
                     localStorage.setItem("customerToken", token);
-                    console.log("Customer token: ", token)
                 }
             }
             else {

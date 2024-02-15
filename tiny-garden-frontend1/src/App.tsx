@@ -24,6 +24,7 @@ import ProductView from "./pages/ProductView.tsx";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Order from "./pages/Order.tsx";
+import Profile from "./pages/Profile.tsx";
 
 const router = createBrowserRouter(
     [
@@ -110,6 +111,10 @@ const router = createBrowserRouter(
         {
             path: "/order",
             element: <Order/>
+        },
+        {
+            path: "/profile",
+            element: <Profile/>
         }
     ]
 )

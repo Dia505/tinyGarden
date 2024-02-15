@@ -102,7 +102,7 @@ function Order() {
 
     return (
         <>
-            {localStorage.getItem("loggedInUserId") ? <HeaderUser /> : <HeaderUserBeforeLogin />}
+            <HeaderUser/>
 
             <div className={"centre-order"}>
                 <div className={"order-title-container"}>

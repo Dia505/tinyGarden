@@ -1,0 +1,41 @@
+.centre-profile {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-title-text, .profile-order-history-text {
+    font-family: "Henny Penny";
+    font-size: 28px;
+}
+.profile-detail-edit-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid #463F3A 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 45vw;
+}
+.profile-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.profile-details-container p {
+    font-size: 20px;
+}
+.profile-details-address, .profile-details-mobile, .profile-details-email {
+    margin-top: -5px;
+}
+.profile-edit-btn {
+    color: #699B13;
+    cursor: pointer;
+}
+.profile-edit-btn:hover {
+    text-decoration: underline;
+}
+.profile-order-table {
+    border: solid #463F3A 2px;
+    width: 80vw;
+}
