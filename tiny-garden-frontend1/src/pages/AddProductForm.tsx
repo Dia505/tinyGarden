@@ -34,7 +34,8 @@ const AddProductForm: React.FC<AddProductFormProps> = ({ onSubmit }) => {
 
                 const response = await axios.post("http://localhost:8080/plant/save-plant-details", formData, {
                     headers: {
-                        "Content-Type": "multipart/form-data"
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": "Bearer " + localStorage.getItem("adminToken")
                     }
                 });
 

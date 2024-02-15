@@ -40,7 +40,9 @@ const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit,
     const deletePlant = useMutation({
         mutationKey: ["DELETE PLANT"],
         mutationFn: async (plantId: number) => {
-            await axios.delete(`http://localhost:8080/plant/delete-by-id/${plantId}`);
+            await axios.delete(`http://localhost:8080/plant/delete-by-id/${plantId}`, {
+                headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+            });
         },
         onSuccess: () => {
             setEditFormVisible(false);
@@ -70,6 +72,7 @@ const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit,
                 const response = await axios.post("http://localhost:8080/plant/update-plant", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
+                        "Authorization": "Bearer " + localStorage.getItem("adminToken")
                     }
                 });
                 console.log(response);
@@ -92,7 +95,9 @@ const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit,
         }
         else {
             delete formData?.image;
-            const response = await axios.post("http://localhost:8080/plant/update-plant-without-image", formData);
+            const response = await axios.post("http://localhost:8080/plant/update-plant-without-image", formData, {
+                headers:{"Authorization":"Bearer " + localStorage.getItem("adminToken")}
+            });
             console.log(response);
             setEditFormVisible(false);
             alert("Plant details updated!");

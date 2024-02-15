@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleMinus} from "@fortawesome/free-solid-svg-icons";
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
+
 function ProductView() {
     const {pk_id} = useParams();
 
@@ -43,6 +44,9 @@ function ProductView() {
         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         cartItems.push(selectedPlant);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        const updateCartEvent = new CustomEvent('cartUpdated');
+        window.dispatchEvent(updateCartEvent);
     };
 
     return (

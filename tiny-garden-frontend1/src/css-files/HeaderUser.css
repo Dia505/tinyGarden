@@ -39,7 +39,7 @@
 .profile-logout-container:hover .logout-button {
     display: block;
 }
-.profile-logout-container {
+.profile-logout-container, .cart-container {
     position: relative;
 }
 .logout-button {
@@ -52,6 +52,11 @@
 
     right: -25px;
     top: 45px;
+}
+.cart-item-number {
+    position: absolute;
+    top: -25px;
+    right: -13px;
 }
 .login-button {
     background-color: #D6DBB6;

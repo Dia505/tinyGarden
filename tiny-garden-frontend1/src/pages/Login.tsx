@@ -36,9 +36,11 @@ function Login() {
                 if(role==="admin"){
                     window.location.href="/adminCustomer"
                     localStorage.setItem("adminToken", token);
-                }else{
+                }
+                else{
                     window.location.href="/"
-
+                    localStorage.setItem("customerToken", token);
+                    console.log("Customer token: ", token)
                 }
             }
             else {

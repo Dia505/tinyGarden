@@ -4,9 +4,11 @@ import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {toast} from "react-toastify";
+
 function HeaderUser() {
     const [sidenavWidth, setSidenavWidth] = useState<string>('0');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [cartItemCount, setCartItemCount] = useState(0);
 
     const toggleNav = () => {
         setSidenavWidth(prevWidth => (prevWidth === '0' ? '220px' : '0'));
@@ -31,6 +33,19 @@ function HeaderUser() {
         navigate('/login');
     }
 
+    useEffect(() => {
+        const handleCartUpdate = () => {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            setCartItemCount(cartItems.length);
+        };
+
+        window.addEventListener('cartUpdated', handleCartUpdate);
+
+        return () => {
+            window.removeEventListener('cartUpdated', handleCartUpdate);
+        };
+    }, []);
+
     return (
         <>
             <div className={"header"}>
@@ -40,7 +55,11 @@ function HeaderUser() {
                 <div className={"header-button-container"}>
                     <Link to={"/"}><p className={"header-button"}>Home</p></Link>
                     <Link to={"/categories"}><p className={"header-button"}>Plants</p></Link>
-                    <Link to={"/order"}><img className={"cart-btn"} src={window.location.origin +"/src/assets/home/cart.png"}/></Link>
+
+                    <div className={"cart-container"}>
+                        <Link to={"/order"}><img className={"cart-btn"} src={window.location.origin +"/src/assets/home/cart.png"}/></Link>
+                        <p className={"cart-item-number"}>({cartItemCount})</p>
+                    </div>
 
                     <div className={"profile-logout-container"}>
                         <img className={"profile-btn"} src={window.location.origin +"/src/assets/home/profile.png"}/>
