@@ -28,8 +28,6 @@ function Login() {
             const { token, customerId,role } = response.data;
 
             if (token) {
-
-                toast.success('You have logged in!');
                 localStorage.setItem('loggedInUserId', customerId);
                 console.log("Logged in user: ",customerId)
 
@@ -40,6 +38,7 @@ function Login() {
                 else{
                     window.location.href="/"
                     localStorage.setItem("customerToken", token);
+                    console.log(token)
                 }
             }
             else {

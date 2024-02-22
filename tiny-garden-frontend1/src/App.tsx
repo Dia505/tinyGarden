@@ -25,6 +25,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Order from "./pages/Order.tsx";
 import Profile from "./pages/Profile.tsx";
+import AdminOrder from "./pages/AdminOrder.tsx";
 
 const router = createBrowserRouter(
     [
@@ -115,6 +116,10 @@ const router = createBrowserRouter(
         {
             path: "/profile",
             element: <Profile/>
+        },
+        {
+            path: "/adminOrder",
+            element: <AdminOrder/>
         }
     ]
 )

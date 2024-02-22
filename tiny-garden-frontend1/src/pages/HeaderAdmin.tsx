@@ -56,7 +56,7 @@ function HeaderAdmin() {
                         </p>
                     </div>
 
-                    <p className={"order-btn-admin"}>Orders</p>
+                    <Link to={"/adminOrder"}><p className={"order-btn-admin"}>Orders</p></Link>
                     <button className={"logout-btn-admin"} onClick={handleLogout}>Log out</button>
                 </div>
 
@@ -76,7 +76,7 @@ function HeaderAdmin() {
                             </div>
                         )}
 
-                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
+                        <Link to="/adminOrder"><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
                         <button className={"adminHeader-sideNav-btn"} onClick={handleLogout}>Log out</button>
 
                     </div>

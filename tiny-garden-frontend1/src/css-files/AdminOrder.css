@@ -1,0 +1,64 @@
+.centre-adOrder {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1000px;
+}
+.page-heading-adOrder {
+    color: #463F3A;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.search-container-adOrder {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.search-btn-adOrder {
+    margin-left: -30px;
+    color: #463F3A;
+    font-size: 20px;
+}
+.search-btn-adOrder:hover {
+    cursor: pointer;
+}
+
+.admin-order-record-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    border: #463F3A solid 2px;
+    border-radius: 10px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.admin-order-records {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.order-record-icon {
+    font-size: 50px;
+}
+.order-number-data {
+    margin-top: -10px;
+}
+
+.table-adOrder {
+    border-style: solid;
+    border-color: #463F3A;
+    border-radius: 10px;
+    width: 80vw;
+    margin-top: 20px;
+}
+.delete-order-btn {
+    font-size: 16px;
+    cursor: pointer;
+}
+.delete-order-btn:hover {
+    text-decoration: underline;
+}

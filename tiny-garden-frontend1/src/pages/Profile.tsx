@@ -1,15 +1,20 @@
 import "../css-files/Profile.css"
 import HeaderUser from "./HeaderUser.tsx";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "axios";
-import {useQuery} from "react-query";
+import {useMutation} from "react-query";
+import {toast} from "react-toastify";
+import {useForm} from "react-hook-form";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faXmark} from "@fortawesome/free-solid-svg-icons";
+
 function Profile() {
     const [customerDetails, setCustomerDetails] = useState(null);
     const [orderHistory, setOrderHistory] = useState([]);
+    const [isEditProfileFormVisible, setEditProfileFormVisible] = useState(false);
+    const customerId = localStorage.getItem('loggedInUserId');
 
     useEffect(() => {
-        const customerId = localStorage.getItem('loggedInUserId');
-
         const fetchCustomerDetails = async () => {
             try {
                 const response = await axios.get(
@@ -17,6 +22,7 @@ function Profile() {
                         headers:{"Authorization":"Bearer " + localStorage.getItem("customerToken")}
                     }
                 );
+                console.log("token: ",localStorage.getItem("customerToken"))
                 setCustomerDetails(response.data);
             }
             catch (error) {
@@ -32,7 +38,8 @@ function Profile() {
                     }
                 );
                 setOrderHistory(response.data);
-            } catch (error) {
+            }
+            catch (error) {
                 console.error('Error fetching order history:', error);
             }
         };
@@ -51,6 +58,32 @@ function Profile() {
         console.log("Order history: ", orderHistory);
     }, [orderHistory]);
 
+    const editProfile = useMutation(async (requestData) => {
+        try {
+            const response = await axios.post("http://localhost:8080/customer/save-customer-details", requestData, {
+                headers:{"Authorization":"Bearer " + localStorage.getItem("customerToken")}
+            });
+            console.log(localStorage.getItem("customerToken"));
+            return response.data;
+        }
+        catch (error) {
+            throw new Error(error.response.data.message);
+        }
+    }, {
+        onSuccess: () => {
+            // toast.success('Your account has been updated');
+            alert("Account updated")
+            // window.location.reload();
+        }
+    });
+
+    const { register, handleSubmit } = useForm();
+
+    const onSubmitEditProfile = (data) => {
+        data.customerId = customerId;
+        editProfile.mutate(data);
+    };
+
     return (
         <>
             <HeaderUser/>
@@ -67,9 +100,41 @@ function Profile() {
                             <p className={"profile-details-email"}>{customerDetails?.email}</p>
                         </div>
 
-                        <p className={"profile-edit-btn"}>Edit</p>
+                        <p className={"profile-edit-btn"} onClick={()=>{setEditProfileFormVisible(!isEditProfileFormVisible)}}>Edit</p>
                     </div>
                 </div>
+
+                {isEditProfileFormVisible && (
+                    <div className={"edit-profile-form-main"}>
+                        <form onSubmit={handleSubmit(onSubmitEditProfile)}>
+                            <div className={"edit-profile-form"}>
+                                <FontAwesomeIcon className={"close-edit-profile-form-button"} icon={faXmark} onClick={() => {setEditProfileFormVisible(!isEditProfileFormVisible)}}/>
+                                <p className={"edit-profile-title"}>Edit Your Profile</p>
+
+                                <div className={"edit-profile-textfield-div"}>
+                                    <div className={"edit-profile-name-div"}>
+                                        <label>Full name:</label>
+                                        <input defaultValue={customerDetails?.fullName} {...register("fullName")} />
+                                    </div>
+                                    <div className={"edit-profile-address-div"}>
+                                        <label>Address:</label>
+                                        <input defaultValue={customerDetails?.address} {...register("address")} />
+                                    </div>
+                                    <div className={"edit-profile-number-div"}>
+                                        <label>Mobile number:</label>
+                                        <input defaultValue={customerDetails?.mobileNo} {...register("mobileNo")} />
+                                    </div>
+                                    <div className={"edit-profile-email-div"}>
+                                        <label>Email address:</label>
+                                        <input defaultValue={customerDetails?.email} {...register("email")} />
+                                    </div>
+                                </div>
+
+                                <button className={"edit-profile-btn"} type={"submit"}>Update</button>
+                            </div>
+                        </form>
+                    </div>
+                )}
 
                 <div className={"profile-order-container"}>
                     <p className={"profile-order-history-text"}>Order History</p>
@@ -84,7 +149,7 @@ function Profile() {
                         </tr>
                         </thead>
                         <tbody>
-                        {orderHistory.map(order => (
+                        {Array.isArray(orderHistory) && orderHistory.map(order => (
                             <tr key={order.orderId}>
                                 <td>{order.orderId}</td>
                                 <td>{new Date(order.date).toISOString().split('T')[0]}</td>
@@ -96,6 +161,7 @@ function Profile() {
                                 <td>{order.totalPrice}</td>
                             </tr>
                         ))}
+
                         </tbody>
                     </table>
                 </div>

@@ -1,11 +1,17 @@
 package com.example.tinygarden.controller;
 
 import com.example.tinygarden.dto.OrderDto;
+import com.example.tinygarden.entity.Customer;
+import com.example.tinygarden.entity.Order;
 import com.example.tinygarden.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/order")
@@ -40,4 +46,13 @@ public class OrderController {
         return "Order deleted";
     }
 
+    @GetMapping("/order-record")
+    public ResponseEntity<Object> findAllRecords() {
+        List<OrderDto> orders = orderService.getAll();
+        int totalRecords = orders.size();
+        Map<String, Object> response = new HashMap<>();
+        response.put("totalRecords", totalRecords);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

@@ -52,7 +52,9 @@ public class SpringSecurityConfig {
                         "/plant/plant-record",
                         "/customer/get-all-data",
                         "/customer/customer-record",
-                        "/order/get-all-order").hasAuthority("admin")
+                        "/order/get-all-order",
+                        "/order/delete-by-id/{orderId}",
+                        "/order/order-record").hasAuthority("admin")
                 .anyRequest()
                 .authenticated()
                 .and()

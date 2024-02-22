@@ -91,7 +91,6 @@ function AdminCustomer() {
                             <td>Address</td>
                             <td>Mobile number</td>
                             <td>Email address</td>
-                            <td>Password</td>
                         </tr>
                     </thead>
 
@@ -104,7 +103,6 @@ function AdminCustomer() {
                                 <td>{customer.address}</td>
                                 <td>{customer.mobileNo}</td>
                                 <td>{customer.email}</td>
-                                <td>{customer.password}</td>
                             </tr>
                         )) : (
                             customerByIdData ? (
@@ -114,7 +112,6 @@ function AdminCustomer() {
                                     <td>{customerByIdData.address}</td>
                                     <td>{customerByIdData.mobileNo}</td>
                                     <td>{customerByIdData.email}</td>
-                                    <td>{customerByIdData.password}</td>
                                 </tr>
                             ) : (
                                 <tr>
