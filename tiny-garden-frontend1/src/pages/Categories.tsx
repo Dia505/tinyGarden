@@ -13,31 +13,31 @@ function Categories() {
                 </div>
                 <div className={"category-grid"}>
                     <div className={"category-grid-row1"}>
-                        <Link to={"/foliage"}><div className={"foliage-div-category"}>
-                            <img className={"foliage-img-category"} src={"src/assets/categories/foliage.png"}/>
-                            <p className={"foliage-text-category"}>Foliage Plants</p>
+                        <Link to={"/foliage"}><div className={"div-category"}>
+                            <img className={"img-category"} src={"src/assets/categories/foliageCat.jpg"}/>
+                            <p className={"name-category"}>Foliage Plants</p>
                         </div></Link>
 
-                        <Link to={"/succulent"}><div className={"succulent-div-category"}>
-                            <img className={"succulent-img-category"} src={"src/assets/categories/succulent.png"}/>
-                            <p className={"succulent-text-category"}>Succulents</p>
+                        <Link to={"/succulent"}><div className={"div-category"}>
+                            <img className={"img-category"} src={"src/assets/categories/succulentCat.jpg"}/>
+                            <p className={"name-category"}>Succulents</p>
                         </div></Link>
 
-                        <Link to={"/cactus"}><div className={"cactus-div-category"}>
-                            <img className={"cactus-img-category"} src={"src/assets/categories/cactus.png"}/>
-                            <p className={"cactus-text-category"}>Cacti</p>
+                        <Link to={"/cactus"}><div className={"div-category"}>
+                            <img className={"img-category"} src={"src/assets/categories/cactusCat.jpg"}/>
+                            <p className={"name-category"}>Cacti</p>
                         </div></Link>
                     </div>
 
                     <div className={"category-grid-row2"}>
-                        <Link to={"/flower"}><div className={"flower-div-category"}>
-                            <img className={"flowering-img-category"} src={"src/assets/categories/flowering.png"}/>
-                            <p className={"flowering-text-category"}>Flowering Plants</p>
+                        <Link to={"/flower"}><div className={"div-category"}>
+                            <img className={"img-category"} src={"src/assets/categories/flowerCat.jpg"}/>
+                            <p className={"name-category"}>Flowering Plants</p>
                         </div></Link>
 
-                        <Link to={"/herb"}><div className={"herb-div-category"}>
-                            <img className={"herb-img-category"} src={"src/assets/categories/herb.png"}/>
-                            <p className={"herb-text-category"}>Herbs</p>
+                        <Link to={"/herb"}><div className={"div-category"}>
+                            <img className={"img-category"} src={"src/assets/categories/herbCat.jpg"}/>
+                            <p className={"name-category"}>Herbs</p>
                         </div></Link>
                     </div>
                 </div>

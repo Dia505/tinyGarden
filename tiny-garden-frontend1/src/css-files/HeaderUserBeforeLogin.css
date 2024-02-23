@@ -25,6 +25,25 @@
     gap: 50px;
     align-items: center;
 }
+.cart-login-msg-container {
+    position: relative;
+}
+.cart-login-msg-container:hover .login-to-shop-msg {
+    display: block;
+}
+.login-to-shop-msg {
+    position: absolute;
+    background-color: #556b2f;
+    top: 50px;
+    left: -37px;
+    width: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    display: none;
+}
 .header-button {
     color: #463F3A;
 }

@@ -18,9 +18,11 @@
 .name-pView {
     font-size: 38px;
     margin-bottom: -10px;
+    color: #463F3A;
 }
 .price-description-pView {
     font-size: 30px;
+    color: #463F3A;
 }
 .description-container-pView li {
     color: #463F3A;
@@ -56,6 +58,7 @@
 }
 .order-number-pView {
     font-size: 18px;
+    color: #463F3A;
 }
 
 @media screen and (max-width: 1041px) {

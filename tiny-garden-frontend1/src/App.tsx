@@ -4,7 +4,6 @@ import Home from "./pages/Home.tsx";
 import Register from "./pages/Register.tsx";
 import {QueryClient, QueryClientProvider} from "react-query";
 import AdminCustomer from "./pages/AdminCustomer.tsx";
-import DemoAdminCustomer from "./pages/DemoAdminCustomer.tsx";
 import Login from "./pages/Login.tsx";
 import Categories from "./pages/Categories.tsx";
 import AdminFoliage from "./pages/AdminFoliage.tsx";
@@ -44,10 +43,6 @@ const router = createBrowserRouter(
         {
             path:"/adminCustomer",
             element: <AdminCustomer/>
-        },
-        {
-            path:"/demoAdCustomer",
-            element: <DemoAdminCustomer/>
         },
         {
             path: "/categories",
@@ -127,7 +122,6 @@ const router = createBrowserRouter(
 const queryClient = new QueryClient();
 
 function App() {
-
     return (
         <>
             <ToastContainer

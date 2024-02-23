@@ -16,156 +16,55 @@
     display: flex;
     gap: 13vw;
 }
-.foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category, .herb-div-category{
-    background-color: #E6B4C1;
-    height: 40vh;
-    width: 15vw;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: transform 0.2s;
-}
-.flower-div-category, .herb-div-category {
-    width: 20vw;
-}
-.foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category {
-    align-items: center;
-}
-.foliage-div-category:hover, .succulent-div-category:hover, .cactus-div-category:hover, .flower-div-category:hover, .herb-div-category:hover{
-    cursor: pointer;
-    transform: translateY(-10px);
-}
+
 
 .category-grid-row2 {
     display: flex;
     gap: 13vw;
     justify-content: center;
 }
-.foliage-text-category, .succulent-text-category, .cactus-text-category, .flowering-text-category, .herb-text-category{
+.name-category {
     font-family: "Henny Penny";
     font-size: 28px;
+    color: #463F3A;
 }
-.foliage-img-category {
-    height: 25vh;
+.img-category {
+    height: 22vw;
+    border-radius: 10px;
+    width: 16vw;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
-.succulent-img-category {
-    height: 22vh;
-    width: 10vw;
-}
-.cactus-img-category {
-    height: 25vh;
-    width: 15vw;
-}
-.flowering-img-category {
-    height: 25vh;
-    width: 10vw;
-}
-.cactus-img-category, .flowering-img-category {
-    margin-top: 30px;
-}
-.herb-img-category {
-    margin-top: 10px;
-    width: 15vw;
-}
-.herb-div-category {
-    align-items: center;
-}
-.foliage-div-category, .cactus-div-category {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.succulent-div-category {
-    padding-left: 40px;
-    padding-right: 40px;
+.img-category:hover {
+    transform: translateY(-10px);
 }
 
-@media screen and (max-width: 1300px) {
-    .foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category, .herb-div-category{
-        width: 18vw;
+@media screen and (max-width: 768px) {
+    .img-category {
+        height: 30vw;
+        width: 24vw;
     }
-    .flower-div-category, .herb-div-category {
-        width: 22vw;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .category-grid-row1 {
-        gap: 7vw;
-        transition: gap 0.5s;
-    }
-    .category-grid-row2 {
-        gap: 10vw;
-        transition: gap 0.5s;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .foliage-img-category {
-        height: 20vh;
-    }
-    .succulent-img-category {
-        width: 15vw;
-    }
-    .cactus-img-category {
-        height: 22vh;
-        width: 17vw;
-    }
-    .flowering-img-category {
-        width: 12vw;
-    }
-    .herb-img-category {
-        height: 15vh;
-        width: 20vw;
-    }
-}
-
-@media screen and (max-width: 700px) {
     .category-grid-row1, .category-grid-row2 {
-        flex-direction: column;
+        gap: 9vw;
     }
-    .category-grid-row2 {
-        gap: 7vw;
-    }
-    .foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category, .herb-div-category{
-        flex-direction: row;
-        height: 20vh;
-        width: 80vw;
-    }
-    .succulent-div-category {
-        width: 74vw;
-    }
-    .flower-div-category, .herb-div-category {
-        width: 86vw;
-    }
-    .succulent-img-category, .cactus-img-category, .flowering-img-category {
-        height: 17vh;
-    }
-    .cactus-img-category, .flowering-img-category {
-        margin-top: 20px;
+    .name-category {
+        font-size: 24px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .foliage-div-category, .succulent-div-category, .cactus-div-category, .flower-div-category, .herb-div-category{
-        flex-direction: row;
-        height: 20vh;
-        width: 80vw;
+    .category-grid-row1, .category-grid-row2 {
+        flex-direction: column;
     }
-    .succulent-div-category {
-        width: 72vw;
+    .div-category {
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
-    .flower-div-category, .herb-div-category {
-        width: 88vw;
-    }
-    .succulent-img-category, .cactus-img-category {
-        height: 17vh;
-        width: 20vw;
-    }
-    .cactus-img-category, .flowering-img-category {
-        margin-top: 0px;
-    }
-    .herb-img-category {
-        width: 27vw;
+    .img-category {
+        height: 48vw;
+        width: 36vw;
     }
 }
+
+

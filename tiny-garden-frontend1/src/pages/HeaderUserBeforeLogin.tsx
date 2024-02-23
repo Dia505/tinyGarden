@@ -33,7 +33,11 @@ function HeaderUserBeforeLogin() {
                 <div className={"header-button-container"}>
                     <Link to={"/"}><p className={"header-button"}>Home</p></Link>
                     <Link to={"/categories"}><p className={"header-button"}>Plants</p></Link>
-                    <img className={"cart-btn"} src={window.location.origin +"/src/assets/home/cart.png"}/>
+
+                    <div className={"cart-login-msg-container"}>
+                        <img className={"cart-btn"} src={window.location.origin +"/src/assets/home/cart.png"}/>
+                        <div className={"login-to-shop-msg"}>Login to shop</div>
+                    </div>
 
                     <Link to={"/login"}><button className={"login-button"}>Login</button></Link>
                 </div>
@@ -42,7 +46,7 @@ function HeaderUserBeforeLogin() {
                     <div className={"header-sideNav-btn-container"}>
                         <Link to="/"><button className={"header-sideNav-btn"}>Home</button></Link>
                         <Link to={"/categories"}><button className={"header-sideNav-btn"}>Products</button></Link>
-                        <Link to="/admin "><button className={"adminHeader-sideNav-btn"}>Orders</button></Link>
+                        <button className={"adminHeader-sideNav-btn"}>Orders</button>
                         <Link to="/login "><button className={"adminHeader-sideNav-btn"}>Login</button></Link>
 
                     </div>

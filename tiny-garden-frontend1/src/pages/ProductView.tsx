@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleMinus} from "@fortawesome/free-solid-svg-icons";
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
+import HeaderUserBeforeLogin from "./HeaderUserBeforeLogin.tsx";
 
 function ProductView() {
     const {pk_id} = useParams();
@@ -51,7 +52,7 @@ function ProductView() {
 
     return (
         <>
-            <HeaderUser/>
+            {localStorage.getItem('loggedInUserId')? <HeaderUser/>:<HeaderUserBeforeLogin/>}
 
             <div className={"centre-pView"}>
                 <div className={"left-section-pView"}>

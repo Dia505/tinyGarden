@@ -3,8 +3,9 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HeaderUser from "./HeaderUser.tsx";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import HeaderUserBeforeLogin from "./HeaderUserBeforeLogin.tsx";
+import {Link} from "react-router-dom";
 
 function Home() {
     const bestSellerPlants = [
@@ -52,23 +53,63 @@ function Home() {
         ]
     }
 
+    const homeSliderImages = [
+        "src/assets/home/homeSlider4.jpg",
+        "src/assets/home/homeSlider5.jpg",
+        "src/assets/home/homeSlider1.jpg",
+        "src/assets/home/homeSlider6.jpg",
+        "src/assets/home/homeSlider7.jpg",
+    ];
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) =>
+                prevIndex === homeSliderImages.length - 1 ? 0 : prevIndex + 1
+            );
+        }, 3000); // Change image every 3 seconds
+
+        return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, [homeSliderImages.length]);
+
     return (
         <>
             {localStorage.getItem("loggedInUserId")? <HeaderUser/>:<HeaderUserBeforeLogin/>}
 
             <div className={"centre-home"}>
                 <div className={"home-heading-container"}>
-                    <div className={"home-heading-img-container1"}>
-                        <img className={"home-heading-img1"} src={"src/assets/home/home heading.png"}/>
-                    </div>
                     <div className={"home-heading"}>
                         <p className={"home-heading-main-text"}>Welcome to The Tiny Garden</p>
                         <p className={"home-heading-subtext"}>Harmony in Every Leaf, Serenity in Every Seed</p>
+                        <div className={"gif-button-container"}>
+                            <img className={"home-gif"} src={"src/assets/home/homeGif.gif"}/>
+                            <Link to={"/categories"}><button className={"shop-now-button"}>Shop now</button></Link>
+                        </div>
                     </div>
-                    <div className={"home-heading-img-container2"}>
-                        <img className={"home-heading-img2"} src={"src/assets/home/home heading 2.png"}/>
+
+                    <div className={"home-image-slider"}>
+                        <img
+                            src={homeSliderImages[currentImageIndex]}
+                            alt="slider"
+                            className="slider-image"
+                        />
                     </div>
                 </div>
+
+
+                {/*<div className={"home-heading-container"}>*/}
+                {/*    <div className={"home-heading-img-container1"}>*/}
+                {/*        <img className={"home-heading-img1"} src={"src/assets/home/home heading.png"}/>*/}
+                {/*    </div>*/}
+                {/*    <div className={"home-heading"}>*/}
+                {/*        <p className={"home-heading-main-text"}>Welcome to The Tiny Garden</p>*/}
+                {/*        <p className={"home-heading-subtext"}>Harmony in Every Leaf, Serenity in Every Seed</p>*/}
+                {/*    </div>*/}
+                {/*    <div className={"home-heading-img-container2"}>*/}
+                {/*        <img className={"home-heading-img2"} src={"src/assets/home/home heading 2.png"}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div className={"about-home"}>
                     <p className={"why-choose-home"}>Why choose us?</p>

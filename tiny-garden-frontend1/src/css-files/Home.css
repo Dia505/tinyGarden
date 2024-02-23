@@ -1,64 +1,10 @@
-.header-home {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background-color: #D6DBB6;
-}
-.logo-container-home {
-    margin-top: 20px;
-    margin-left: 40px;
-}
-.logo-home {
-    height: 100px;
-}
-.header-button-container-home {
-    display: flex;
-    margin-right: 40px;
-    gap: 50px;
-    align-items: center;
-}
-.header-button-home {
+.centre-home p {
     color: #463F3A;
 }
-.header-button-home:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-.cart-btn-home {
-    height: 40px;
-}
-.cart-btn-home:hover {
-    cursor: pointer;
-}
-.login-button-home {
-    background-color: #D6DBB6;
-    color: #463F3A;
-    border-color: #463F3A;
-    border-width: 2px;
-    border-radius: 0px;
-    height: 35px;
-    padding-top: 4px;
-}
-
 .home-heading-container {
     display: flex;
     justify-content: space-between;
-    background-color: #A4BE8B;
-    width: 1200px;
-    height: 200px;
-    border-radius: 20px;
     margin-top: 100px;
-    margin-left: 30px;
-}
-.home-heading-img1 {
-    height: 150px;
-    margin-top: 35px;
-    margin-left: 40px;
 }
 .home-heading {
     display: flex;
@@ -67,18 +13,29 @@
 }
 .home-heading-main-text {
     font-family: "Henny Penny";
-    font-size: 36px;
+    font-size: 60px;
 }
 .home-heading-subtext {
     font-family: "Judson";
     font-weight: bold;
-    font-size: 22px;
+    font-size: 28px;
     margin-top: -15px;
 }
-.home-heading-img2 {
-    height: 150px;
-    margin-top: 35px;
-    margin-right: 40px;
+.gif-button-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.shop-now-button {
+    background-color: #556b2f;
+    width: 13vw;
+    height: 50px;
+}
+.home-gif {
+    height: 20vw;
+}
+.slider-image {
+    width: 25vw;
 }
 
 .about-home {
@@ -234,8 +191,7 @@
 
 @media screen and (max-width: 1300px) {
     .home-heading-container {
-        width: 700px;
-        margin-left: -5px;
+        gap: 20px;
     }
     .home-heading-main-text {
         font-size: 26px;
@@ -312,16 +268,23 @@
     }
 }
 
+@media screen and (max-width: 768px){
+    .shop-now-button {
+        width: 20vw;
+    }
+}
+
 @media screen and (min-width: 400px) and (max-width: 750px) {
+    .slider-image {
+        width: 35vw;
+    }
+    .shop-now-button {
+        height: 60px;
+        width: 22vw;
+    }
     .home-heading-container {
         width: 450px;
         margin-left: -15px;
-    }
-    .home-heading-img-container2 {
-        display: none;
-    }
-    .home-heading-img1 {
-        margin-left: 0px;
     }
     .home-heading-main-text {
         margin-left: -15px;
