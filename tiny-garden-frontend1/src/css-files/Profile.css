@@ -7,6 +7,7 @@
 .profile-title-text, .profile-order-history-text {
     font-family: "Henny Penny";
     font-size: 28px;
+    color: #463F3A;
 }
 .profile-detail-edit-container {
     display: flex;
@@ -24,6 +25,7 @@
 }
 .profile-details-container p {
     font-size: 20px;
+    color: #463F3A;
 }
 .profile-details-address, .profile-details-mobile, .profile-details-email {
     margin-top: -5px;
@@ -55,10 +57,11 @@
 }
 .close-edit-profile-form-button {
     font-size: 22px;
-    margin-left: 250px;
+
     cursor: pointer;
 }
 .edit-profile-title{
+    color: #463F3A;
     font-family: "Henny Penny";
     font-size: 26px;
 }

@@ -1,8 +1,10 @@
-.centre-order {
+.centre-order{
     margin-top: 70px;
 }
-.order-title-text, .cart-empty-text {
+.centre-order p {
     color: #463F3A;
+}
+.order-title-text, .cart-empty-text {
     font-family: "Henny Penny";
 }
 .order-title-text {
@@ -16,6 +18,9 @@
 }
 .cart-empty-text {
     font-size: 40px;
+}
+.order-empty-img {
+    height: 22vw;
 }
 
 .divider-order {
@@ -95,4 +100,28 @@
 }
 .remove-btn-order:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-empty-text {
+        font-size: 36px;
+    }
+    .order-empty-img {
+        height: 28vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .checkout-btn {
+        width: 24vw;
+    }
+    .price-checkout-container {
+        gap: 46vw;
+    }
+    .cart-empty-text {
+        font-size: 32px;
+    }
+    .order-empty-img {
+        height: 30vw;
+    }
 }

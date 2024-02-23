@@ -11,6 +11,7 @@ import HeaderUserBeforeLogin from "./HeaderUserBeforeLogin.tsx";
 
 function ProductView() {
     const {pk_id} = useParams();
+    const isLoggedIn = localStorage.getItem("loggedInUserId");
 
     const {data: dataById} = useQuery({
         queryKey: ["GET_BY_ID", pk_id],
@@ -52,7 +53,7 @@ function ProductView() {
 
     return (
         <>
-            {localStorage.getItem('loggedInUserId')? <HeaderUser/>:<HeaderUserBeforeLogin/>}
+            {isLoggedIn? <HeaderUser/>:<HeaderUserBeforeLogin/>}
 
             <div className={"centre-pView"}>
                 <div className={"left-section-pView"}>
@@ -77,7 +78,13 @@ function ProductView() {
                     </div>
 
                     <div className={"order-btn-container-pView"}>
-                        <button className={"add-to-cart-btn-pView"} onClick={handleAddToCart}>Add To Cart</button>
+                        <button
+                            className={"add-to-cart-btn-pView" + (isLoggedIn ? "" : " disabled")}
+                            onClick={isLoggedIn ? handleAddToCart : null}
+                            disabled={!isLoggedIn}
+                        >
+                            {isLoggedIn ? "Add To Cart" : "Please log in"}
+                        </button>
 
                         <div className={"order-number-container-pView"}>
                             <FontAwesomeIcon className={"minus-plus-btn-pView"} icon={faCircleMinus} onClick={handleDecrement}/>
