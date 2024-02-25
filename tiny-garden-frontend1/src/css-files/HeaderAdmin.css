@@ -21,6 +21,7 @@
 .customer-btn-admin, .product-btn-admin, .order-btn-admin {
     margin-right: 40px;
     font-size: 18px;
+    color: #463F3A;
 }
 .customer-btn-admin:hover, .product-btn-admin:hover, .order-btn-admin:hover {
     text-decoration: underline;

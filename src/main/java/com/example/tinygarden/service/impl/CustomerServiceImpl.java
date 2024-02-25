@@ -51,4 +51,15 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(customerId);
         return "Data deleted";
     }
+
+    @Override
+    public String updateProfile(CustomerDto customerDto) {
+        Customer existingCustomer = customerRepository.findById(customerDto.getCustomerId()).orElseThrow(() ->new NullPointerException("error"));;
+        existingCustomer.setFullName(customerDto.getFullName());
+        existingCustomer.setAddress(customerDto.getAddress());
+        existingCustomer.setMobileNo(customerDto.getMobileNo());
+        existingCustomer.setEmail(customerDto.getEmail());
+        customerRepository.save(existingCustomer);
+        return "Profile updated";
+    }
 }

@@ -39,8 +39,7 @@
 }
 
 .about-home {
-    margin-top: 50px;
-    flex-wrap: wrap;
+    margin-top: 120px;
 }
 .why-choose-home {
     font-family: "Henny Penny";
@@ -48,54 +47,66 @@
 }
 .home-points-container {
     display: flex;
-    justify-content: space-between;
+    gap: 12vw;
 }
 .home-point {
     display: flex;
     flex-direction: column;
     background-color: #A4BE8B;
-    height: 400px;
-    width: 300px;
+    height: 30vw;
     border-radius: 20px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .home-point-quality {
     display: flex;
     align-items: start;
     margin-top: 25px;
-    margin-left: 10px;
 }
 .home-quality2 {
-    height: 100px;
+    height: 7vw;
 }
 .home-quality1 {
-    height: 150px;
+    height: 11vw;
+}
+.home-point-texts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16vw;
 }
 .home-point-maintext {
     font-family: "Judson";
     font-weight: bold;
     font-size: 18px;
-    height: 180px;
-    width: 200px;
-    margin-left: 55px;
+}
+.home-point-subtext {
+    font-family: "Judson";
+    font-size: 16px;
+    margin-top: -10px;
 }
 .home-sustainability {
-    height: 150px;
-    width: 170px;
-    margin-left: 70px;
+    height: 10vw;
+    width: 12vw;
+    margin-left: 5px;
     margin-top: 20px;
 }
 .home-point-price {
     display: flex;
-    margin-left: 40px;
+    margin-left: 10px;
     margin-top: 30px;
 }
 .home-money {
-    height: 60px;
+    height: 4vw;
 }
 .home-purse {
-    height: 100px;
+    height: 7vw;
 }
 
+.carousel-container {
+    width: 85vw;
+}
 .best-seller-home {
     margin-top: 70px;
 }
@@ -104,9 +115,6 @@
     font-size: 26px;
 }
 .best-seller-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 400px;
 }
 .best-img {
@@ -115,16 +123,15 @@
 
 .home-at-tinyGarden-container {
     display: flex;
-    flex-shrink: initial;
     background-color: #E6B4C1;
     margin-top: 70px;
     border-radius: 10px;
+    height: 40vw;
 }
 .home-at-tinyGarden-text-container {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    padding-left: 20px;
 }
 .home-at-tinyGarden-maintext {
     font-family: "Henny Penny";
@@ -135,40 +142,24 @@
     margin-top: 40px;
     margin-left: 20px;
 }
-.home-air-purify-container {
-    width: 250px;
-}
-.home-air-purify {
-    height: 150px;
-}
-.home-positivity-container {
-    width: 250px;
-}
-.home-meditate {
-    height: 150px;
-}
-.home-productivity-container {
-    width: 250px;
-}
-.home-productive {
-    height: 150px;
+.home-air-purify, .home-meditate, .home-productive {
+    height: 10vw;
 }
 .home-at-tinyGarden-img {
-    height: 600px;
-    width: 800px;
+    height: 40vw;
 }
 
 .home-location {
     display: flex;
     background-color: #E6B4C1;
     margin-top: 50px;
-    height: 250px;
     border-radius: 10px;
 }
 .home-shop-img {
-    height: 170px;
+    height: 180px;
     border-radius: 100px;
-    margin-top: 50px;
+    margin-top: 45px;
+    margin-bottom: 45px;
     margin-left: 20px;
 }
 .home-shop-text-container {
@@ -189,82 +180,125 @@
     margin-top: 0;
 }
 
+.quote-home-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 5vw;
+    margin-top: 100px;
+}
+.quote-gif {
+    height: 13vw;
+}
+.quote-maintext, .quote-subtext, .testimonial-heading {
+    font-family: "Mrs Saint Delafield";
+    color: #463F3A;
+}
+.quote-maintext {
+    font-size: 44px;
+}
+.quote-subtext {
+    font-size: 32px;
+}
+
+.testimonial-title-container {
+    display: flex;
+    align-items: end;
+    margin-left: 25vw;
+}
+.testimonial-gif {
+    height: 15vw;
+}
+.testimonial-heading {
+    font-size: 50px;
+    margin-left: -50px;
+}
+.testimonials {
+    font-family: Judson;
+    font-size: 17px;
+}
+.testimonials-home-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 45px;
+}
+
 @media screen and (max-width: 1300px) {
     .home-heading-container {
         gap: 20px;
     }
     .home-heading-main-text {
-        font-size: 26px;
+        font-size: 36px;
         margin-top: 40px;
-    }
-    .home-heading-subtext {
-        display: none;
     }
     .why-choose-home {
         margin-right: 30px;
     }
-    .home-points-container {
-        justify-content: unset;
-        gap: 20px;
-        margin-left: -5px;
+    .home-point-subtext {
+        font-size: 14px;
     }
     .home-point {
-        width: 220px;
+        height: 35vw;
     }
-    .home-point-maintext {
-        margin-left: 15px;
-    }
-    .home-quality1 {
-        height: 120px;
-    }
-    .home-quality2 {
-        height: 70px;
-    }
-    .home-sustainability {
-        height: 130px;
-        width: 140px;
-        margin-left: 45px;
-    }
-    .home-purse {
-        height: 80px;
-    }
-    .home-point-price {
-        margin-left: 10px;
-    }
+
     .best-seller-text {
         margin-right: 30px;
     }
-    .carousel-container {
-        width: 680px;
+
+    .home-at-tinyGarden-container, .home-at-tinyGarden-img {
+        height: 45vw;
     }
-    .home-at-tinyGarden-subtext {
+}
+
+@media screen and (max-width: 1100px) {
+    .home-point {
+        height: 45vw;
+    }
+    .home-points-container {
+        gap: 3vw;
+    }
+    .home-quality1 {
+        height: 14vw;
+    }
+    .home-sustainability {
+        height: 12vw;
+        width: 14vw;
+    }
+    .home-purse {
+        height: 9vw;
+    }
+    .home-point-texts-container {
+        width: 24vw;
+    }
+
+    .plant-advantage-text {
         display: none;
     }
-    .home-at-tinyGarden-container {
-        width: 690px;
-        height: 750px;
+    .home-meditate, .home-productive {
+        display: none;
     }
-    .home-at-tinyGarden-maintext {
-        margin-right: 160px;
-        font-size: 34px;
+    .home-air-purify {
+        height: 15vw;
     }
-    .home-plants-advantages {
+    .home-at-tinyGarden-subtext {
+        font-size: 16px;
+    }
+    .home-at-tinyGarden-text-img {
+        display: flex;
         flex-direction: column;
+        align-items: center;
     }
-    .home-productivity-container {
-        margin-left: 350px;
-        margin-top: -400px;
+    .testimonial-title-container {
+        gap: 10px;
     }
-    .home-at-tinyGarden-img {
-        height: 300px;
-        width: 600px;
-        margin-left: -170px;
+    .testimonial-gif {
+        height: 17vw;
     }
-    .home-air-purify-container{
-        margin-top: -50px;
-    }
-    .home-location {
-        width: 690px;
+}
+
+@media screen and (max-width: 900px){
+    .home-air-purify {
+        display: none;
     }
 }
 
@@ -289,6 +323,9 @@
     .home-heading-main-text {
         margin-left: -15px;
     }
+    .home-heading-subtext {
+        display: none;
+    }
     .why-choose-home {
         margin-right: 30px;
     }
@@ -296,55 +333,71 @@
         flex-direction: column;
     }
     .home-point {
-        width: 430px;
         height: 200px;
         flex-direction: row;
-        align-items: start;
+        justify-content: space-evenly;
     }
     .home-point-maintext {
-        font-size: 28px;
-        margin-left: 0;
+        font-size: 24px;
     }
+    .home-point-subtext {
+        display: none;
+    }
+    .home-quality1 {
+        height: 160px;
+    }
+    .home-quality2 {
+        height: 80px;
+    }
+    .home-sustainability {
+        height: 150px;
+        width: 180px;
+    }
+    .home-purse {
+        height: 120px;
+    }
+    .home-money {
+        height: 50px;
+    }
+
     .best-seller-text {
         margin-right: 30px;
     }
-    .carousel-container {
-        width: 420px;
-    }
-    .home-plants-advantages {
-        display: none;
-    }
-    .home-at-tinyGarden-text-container {
-        margin-bottom: 30px;
-        margin-top: -20px;
-    }
+
     .home-at-tinyGarden-maintext {
         font-size: 36px;
         width: 100%;
-        margin-left: -10px;
         margin-top: 0px;
     }
     .home-at-tinyGarden-subtext {
         display: block;
         margin-top: 0px;
     }
+    .home-at-tinyGarden-container, .home-at-tinyGarden-img {
+        height: 85vw;
+    }
     .home-at-tinyGarden-container {
         flex-direction: column-reverse;
-        width: 450px;
         margin-left: -15px;
+        margin-top: 350px;
     }
     .home-at-tinyGarden-img {
-        width: 450px;
-        height: 400px;
         margin-left: 0px;
-        margin-bottom: 70px;
+    }
+    .testimonial-gif {
+        height: 22vw;
+    }
+    .testimonial-title-container {
+        margin-left: 20px;
+        align-items: center;
     }
     .home-location {
-        width: 450px;
-        margin-left: -15px;
+        padding-right: 10px;
     }
-    .home-shop-text-container {
-        margin-top: 0px;
-        margin-left: 0px;
+    .quote-home-container {
+        margin-top: 50px;
+    }
+    .about-home {
+        margin-top: 70px;
     }
 }

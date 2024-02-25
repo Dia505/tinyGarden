@@ -51,7 +51,7 @@ function Profile() {
     }, []);
 
     useEffect(() => {
-        console.log("Customer details: ", customerDetails);
+        console.log("Customer details: ",customerDetails);
     }, [customerDetails]);
 
     useEffect(() => {
@@ -60,7 +60,7 @@ function Profile() {
 
     const editProfile = useMutation(async (requestData) => {
         try {
-            const response = await axios.post("http://localhost:8080/customer/save-customer-details", requestData, {
+            const response = await axios.post("http://localhost:8080/customer/update-profile", requestData, {
                 headers:{"Authorization":"Bearer " + localStorage.getItem("customerToken")}
             });
             console.log(localStorage.getItem("customerToken"));
@@ -71,9 +71,7 @@ function Profile() {
         }
     }, {
         onSuccess: () => {
-            // toast.success('Your account has been updated');
-            alert("Account updated")
-            // window.location.reload();
+            window.location.reload();
         }
     });
 

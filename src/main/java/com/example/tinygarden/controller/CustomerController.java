@@ -50,4 +50,10 @@ public class CustomerController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @PostMapping("update-profile")
+    public String updateProfile(@RequestBody CustomerDto customerDto) {
+        customerService.updateProfile(customerDto);
+        return "Profile updated";
+    }
 }

@@ -14,4 +14,6 @@ public interface CustomerService {
     Optional<Customer> getById(Integer customerId);
 
     String deleteById(Integer customerId);
+
+    String updateProfile(CustomerDto customerDto);
 }
