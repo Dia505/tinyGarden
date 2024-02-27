@@ -21,6 +21,7 @@ const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit,
     const [selectedPetF, setSelectedPetF] = useState("");
     const [plantDetails, setPlantDetails] = useState(plantDetilFromAdminPage);
     const { register, handleSubmit, setValue } = useForm({defaultValues:plantDetails,values:plantDetails});
+    const [selectedImage, setSelectedImage] = useState(null);
 
     useEffect(() => {
         if (isEditFormVisible && plantDetails && plantDetails.plantId) {
@@ -114,10 +115,25 @@ const EditProductForm: React.FC<EditProductFormProps & DataProps> = ({ onSubmit,
                         <div className={"editForm-left-section"}>
                             <label className={"edit-image-upload-label"} htmlFor={"productImageId"}>
                                 <div className={"edit-image-upload-container"}>
-                                    <img className={"editForm-image"} src={plantDetails?.image}/>
+                                    {selectedImage ? (
+                                        <img className={"editForm-image"} src={selectedImage}/>
+                                    ) : (
+                                        <img className={"editForm-image"} src={plantDetails?.image}/>
+                                    )}
                                 </div>
                             </label>
-                            <input id={"productImageId"} type={"file"} className={"product-image-input"} {...register("image")}/>
+                            <input id={"productImageId"}
+                                   type={"file"}
+                                   className={"product-image-input"}
+                                   {...register("image", {
+                                       onChange: (e) => {
+                                           const file = e.target.files[0];
+                                           if(file) {
+                                               const imageUrl = URL.createObjectURL(file);
+                                               setSelectedImage(imageUrl);
+                                           }
+                                       }
+                                   })}/>
                         </div>
 
                         <div className={"editForm-right-section"}>
