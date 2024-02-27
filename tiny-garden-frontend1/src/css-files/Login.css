@@ -75,15 +75,6 @@
 .text-email-login, .text-password-login {
     margin-top: 20px;
 }
-.forgot-password-login {
-    font-family: "Nunito";
-    font-weight: 600;
-    margin-left: 230px;
-    cursor: pointer;
-}
-.forgot-password-login:hover {
-    text-decoration: underline;
-}
 .login-button-container {
     display: flex;
     justify-content: space-evenly;

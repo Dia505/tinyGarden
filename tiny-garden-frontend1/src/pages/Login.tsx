@@ -96,7 +96,6 @@ function Login() {
                             </div>
                         </div>
 
-                        <p className='forgot-password-login'>Forgot password</p>
 
                         <div className={"login-button-container"}>
                             <button className={"login-btn-login"}>Login</button>

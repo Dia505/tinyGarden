@@ -62,4 +62,5 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(existingCustomer);
         return "Profile updated";
     }
+
 }

@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select * from customer where email=?1", nativeQuery = true)
     Optional<Customer> getUserByEmail(String email);
+
 }
