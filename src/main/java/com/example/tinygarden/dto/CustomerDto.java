@@ -22,4 +22,5 @@ public class CustomerDto {
     private String email;
     @NotNull
     private String password;
+    private String otp;
 }

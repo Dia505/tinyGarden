@@ -2,6 +2,7 @@ package com.example.tinygarden.controller;
 
 import com.example.tinygarden.dto.CustomerDto;
 import com.example.tinygarden.entity.Customer;
+import com.example.tinygarden.response.OtpResponse;
 import com.example.tinygarden.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -55,6 +56,24 @@ public class CustomerController {
     public String updateProfile(@RequestBody CustomerDto customerDto) {
         customerService.updateProfile(customerDto);
         return "Profile updated";
+    }
+
+    @PostMapping("/send-otp")
+    public ResponseEntity<?> sendOtp(@RequestBody CustomerDto customerDto){
+        OtpResponse otpResponse = customerService.generateOtpToEmail(customerDto.getEmail());
+        return ResponseEntity.ok(otpResponse);
+    }
+
+    @PostMapping("/validate-otp")
+    public ResponseEntity<?> validateOtp(@RequestBody CustomerDto customerDto){
+        OtpResponse otpResponse = customerService.validateOtp(customerDto.getEmail(),customerDto.getOtp());
+        return ResponseEntity.ok(otpResponse);
+    }
+
+    @PostMapping("/password-reset")
+    public String resetPassword(@RequestBody CustomerDto customerDto){
+        customerService.updatePassword(customerDto.getPassword(),customerDto.getEmail());
+        return "Password reset complete";
     }
 
 }

@@ -2,14 +2,12 @@ import "../css-files/Login.css"
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
-import {toast} from "react-toastify";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -96,6 +94,9 @@ function Login() {
                             </div>
                         </div>
 
+                        <div className={"forgot-password-login"}>
+                            <Link to={"/forgotPassword"}><p className={"forgot-password-btn"}>Forgot Password</p></Link>
+                        </div>
 
                         <div className={"login-button-container"}>
                             <button className={"login-btn-login"}>Login</button>

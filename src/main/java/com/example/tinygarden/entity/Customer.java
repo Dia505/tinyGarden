@@ -53,6 +53,8 @@ public class Customer implements UserDetails {
     )
     private Collection<Role> roles;
 
+    private String otp;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles().stream().

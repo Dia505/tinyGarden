@@ -45,6 +45,9 @@ public class SpringSecurityConfig {
                 .requestMatchers("/customer/save-customer-details").permitAll()
                 .requestMatchers("/plant/get-by-type/{type}").permitAll()
                 .requestMatchers("/plant/get-by-id/{plantId}").permitAll()
+                .requestMatchers("/customer/send-otp").permitAll()
+                .requestMatchers("/customer/validate-otp").permitAll()
+                .requestMatchers("/customer/password-reset").permitAll()
                 .requestMatchers("/plant/save-plant-details",
                         "/plant/delete-by-id/{plantId}",
                         "/plant/update-plant",

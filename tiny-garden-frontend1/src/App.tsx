@@ -25,6 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Order from "./pages/Order.tsx";
 import Profile from "./pages/Profile.tsx";
 import AdminOrder from "./pages/AdminOrder.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
 
 const router = createBrowserRouter(
     [
@@ -116,6 +117,10 @@ const router = createBrowserRouter(
             path: "/adminOrder",
             element: <AdminOrder/>
         },
+        {
+            path: "/forgotPassword",
+            element: <ForgotPassword/>
+        }
     ]
 )
 

@@ -102,6 +102,19 @@
     margin-left: -100px;
 }
 
+.forgot-password-login {
+    margin-left: 220px;
+    margin-top: 20px;
+}
+.forgot-password-btn {
+    cursor: pointer;
+    font-family: Nunito;
+    color: white;
+}
+.forgot-password-btn:hover {
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 1350px) {
     .page-container-login {
         flex-direction: column;
